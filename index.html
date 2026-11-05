@@ -170,6 +170,15 @@ details.more p{margin:6px 0 0}
 .lvicon{font-size:26px}
 .lvbar{height:6px;background:var(--line);border-radius:9px;margin-top:6px;overflow:hidden}
 .lvbar i{display:block;height:100%;background:var(--brand)}
+.hrow{display:flex;align-items:center;gap:14px;padding:14px 18px}
+.hic{font-size:26px}
+.hsc{font-weight:700;font-size:18px;text-align:center}.hsc small{display:block;font-size:11px;font-weight:400;color:var(--muted)}
+.bkta{width:100%;min-height:80px;border:1px solid var(--line);border-radius:12px;padding:10px;font:13px/1.4 monospace;background:var(--bg,transparent);color:var(--ink);word-break:break-all}
+.rcv{line-height:2.3}.rw{border-radius:8px;padding:0 4px}.rw.ok{background:var(--ok-soft)}.rw.no{background:var(--gold-soft);box-shadow:inset 0 -3px 0 var(--gold)}
+.rcaud{margin-top:12px}.rcaud audio{width:100%;margin-top:4px}
+.rclive{margin-top:10px;font-size:15px}.rclive div{font-size:20px;color:var(--ink);margin-top:4px}
+.acc{margin:0 0 24px}.acc h2{margin-top:0}
+.acin{display:block;width:100%;margin-top:8px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-size:16px;background:var(--surface);color:var(--ink)}
 footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:13px}
 @media (max-width:640px){
   .pill{order:2}
@@ -420,7 +429,7 @@ nav a:hover{background:color-mix(in srgb,var(--brand) 8%,transparent);color:var(
   </div>
 </header>
 <main class="wrap" id="app"></main>
-<footer><div class="wrap"><div class="sharebox"><div><svg class="qr" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="QR code" viewBox="0 0 31 31" shape-rendering="crispEdges"><rect width="31" height="31" fill="#fff"/><path d="M1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM4 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM7 1h1v1h-1zM12 1h1v1h-1zM13 1h1v1h-1zM15 1h1v1h-1zM20 1h1v1h-1zM23 1h1v1h-1zM24 1h1v1h-1zM25 1h1v1h-1zM26 1h1v1h-1zM27 1h1v1h-1zM28 1h1v1h-1zM29 1h1v1h-1zM1 2h1v1h-1zM7 2h1v1h-1zM9 2h1v1h-1zM12 2h1v1h-1zM14 2h1v1h-1zM18 2h1v1h-1zM19 2h1v1h-1zM20 2h1v1h-1zM23 2h1v1h-1zM29 2h1v1h-1zM1 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM7 3h1v1h-1zM10 3h1v1h-1zM12 3h1v1h-1zM13 3h1v1h-1zM16 3h1v1h-1zM21 3h1v1h-1zM23 3h1v1h-1zM25 3h1v1h-1zM26 3h1v1h-1zM27 3h1v1h-1zM29 3h1v1h-1zM1 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM7 4h1v1h-1zM14 4h1v1h-1zM19 4h1v1h-1zM23 4h1v1h-1zM25 4h1v1h-1zM26 4h1v1h-1zM27 4h1v1h-1zM29 4h1v1h-1zM1 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM7 5h1v1h-1zM9 5h1v1h-1zM10 5h1v1h-1zM11 5h1v1h-1zM13 5h1v1h-1zM14 5h1v1h-1zM17 5h1v1h-1zM19 5h1v1h-1zM20 5h1v1h-1zM23 5h1v1h-1zM25 5h1v1h-1zM26 5h1v1h-1zM27 5h1v1h-1zM29 5h1v1h-1zM1 6h1v1h-1zM7 6h1v1h-1zM11 6h1v1h-1zM15 6h1v1h-1zM16 6h1v1h-1zM17 6h1v1h-1zM20 6h1v1h-1zM23 6h1v1h-1zM29 6h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1zM9 7h1v1h-1zM11 7h1v1h-1zM13 7h1v1h-1zM15 7h1v1h-1zM17 7h1v1h-1zM19 7h1v1h-1zM21 7h1v1h-1zM23 7h1v1h-1zM24 7h1v1h-1zM25 7h1v1h-1zM26 7h1v1h-1zM27 7h1v1h-1zM28 7h1v1h-1zM29 7h1v1h-1zM10 8h1v1h-1zM11 8h1v1h-1zM17 8h1v1h-1zM18 8h1v1h-1zM20 8h1v1h-1zM21 8h1v1h-1zM1 9h1v1h-1zM3 9h1v1h-1zM5 9h1v1h-1zM7 9h1v1h-1zM11 9h1v1h-1zM12 9h1v1h-1zM13 9h1v1h-1zM16 9h1v1h-1zM17 9h1v1h-1zM18 9h1v1h-1zM19 9h1v1h-1zM25 9h1v1h-1zM28 9h1v1h-1zM1 10h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM10 10h1v1h-1zM11 10h1v1h-1zM12 10h1v1h-1zM13 10h1v1h-1zM14 10h1v1h-1zM21 10h1v1h-1zM23 10h1v1h-1zM26 10h1v1h-1zM29 10h1v1h-1zM1 11h1v1h-1zM2 11h1v1h-1zM5 11h1v1h-1zM6 11h1v1h-1zM7 11h1v1h-1zM11 11h1v1h-1zM12 11h1v1h-1zM15 11h1v1h-1zM17 11h1v1h-1zM18 11h1v1h-1zM23 11h1v1h-1zM24 11h1v1h-1zM25 11h1v1h-1zM27 11h1v1h-1zM28 11h1v1h-1zM29 11h1v1h-1zM2 12h1v1h-1zM6 12h1v1h-1zM9 12h1v1h-1zM11 12h1v1h-1zM14 12h1v1h-1zM15 12h1v1h-1zM17 12h1v1h-1zM18 12h1v1h-1zM20 12h1v1h-1zM22 12h1v1h-1zM23 12h1v1h-1zM24 12h1v1h-1zM25 12h1v1h-1zM28 12h1v1h-1zM3 13h1v1h-1zM6 13h1v1h-1zM7 13h1v1h-1zM8 13h1v1h-1zM9 13h1v1h-1zM15 13h1v1h-1zM16 13h1v1h-1zM17 13h1v1h-1zM18 13h1v1h-1zM20 13h1v1h-1zM21 13h1v1h-1zM22 13h1v1h-1zM23 13h1v1h-1zM26 13h1v1h-1zM28 13h1v1h-1zM29 13h1v1h-1zM2 14h1v1h-1zM4 14h1v1h-1zM6 14h1v1h-1zM9 14h1v1h-1zM11 14h1v1h-1zM12 14h1v1h-1zM13 14h1v1h-1zM15 14h1v1h-1zM17 14h1v1h-1zM21 14h1v1h-1zM22 14h1v1h-1zM23 14h1v1h-1zM26 14h1v1h-1zM29 14h1v1h-1zM1 15h1v1h-1zM7 15h1v1h-1zM8 15h1v1h-1zM9 15h1v1h-1zM10 15h1v1h-1zM11 15h1v1h-1zM12 15h1v1h-1zM13 15h1v1h-1zM14 15h1v1h-1zM19 15h1v1h-1zM22 15h1v1h-1zM23 15h1v1h-1zM26 15h1v1h-1zM28 15h1v1h-1zM29 15h1v1h-1zM2 16h1v1h-1zM3 16h1v1h-1zM4 16h1v1h-1zM6 16h1v1h-1zM8 16h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM16 16h1v1h-1zM18 16h1v1h-1zM19 16h1v1h-1zM21 16h1v1h-1zM22 16h1v1h-1zM26 16h1v1h-1zM28 16h1v1h-1zM1 17h1v1h-1zM2 17h1v1h-1zM3 17h1v1h-1zM4 17h1v1h-1zM5 17h1v1h-1zM7 17h1v1h-1zM8 17h1v1h-1zM12 17h1v1h-1zM17 17h1v1h-1zM18 17h1v1h-1zM21 17h1v1h-1zM22 17h1v1h-1zM23 17h1v1h-1zM26 17h1v1h-1zM28 17h1v1h-1zM29 17h1v1h-1zM2 18h1v1h-1zM6 18h1v1h-1zM8 18h1v1h-1zM9 18h1v1h-1zM10 18h1v1h-1zM11 18h1v1h-1zM14 18h1v1h-1zM17 18h1v1h-1zM21 18h1v1h-1zM22 18h1v1h-1zM23 18h1v1h-1zM26 18h1v1h-1zM27 18h1v1h-1zM29 18h1v1h-1zM1 19h1v1h-1zM4 19h1v1h-1zM7 19h1v1h-1zM10 19h1v1h-1zM11 19h1v1h-1zM12 19h1v1h-1zM13 19h1v1h-1zM15 19h1v1h-1zM18 19h1v1h-1zM21 19h1v1h-1zM22 19h1v1h-1zM25 19h1v1h-1zM28 19h1v1h-1zM29 19h1v1h-1zM2 20h1v1h-1zM3 20h1v1h-1zM4 20h1v1h-1zM5 20h1v1h-1zM10 20h1v1h-1zM14 20h1v1h-1zM15 20h1v1h-1zM16 20h1v1h-1zM18 20h1v1h-1zM19 20h1v1h-1zM21 20h1v1h-1zM23 20h1v1h-1zM25 20h1v1h-1zM26 20h1v1h-1zM28 20h1v1h-1zM1 21h1v1h-1zM4 21h1v1h-1zM6 21h1v1h-1zM7 21h1v1h-1zM9 21h1v1h-1zM11 21h1v1h-1zM13 21h1v1h-1zM15 21h1v1h-1zM17 21h1v1h-1zM18 21h1v1h-1zM19 21h1v1h-1zM20 21h1v1h-1zM21 21h1v1h-1zM22 21h1v1h-1zM23 21h1v1h-1zM24 21h1v1h-1zM25 21h1v1h-1zM9 22h1v1h-1zM10 22h1v1h-1zM11 22h1v1h-1zM12 22h1v1h-1zM15 22h1v1h-1zM17 22h1v1h-1zM20 22h1v1h-1zM21 22h1v1h-1zM25 22h1v1h-1zM27 22h1v1h-1zM28 22h1v1h-1zM29 22h1v1h-1zM1 23h1v1h-1zM2 23h1v1h-1zM3 23h1v1h-1zM4 23h1v1h-1zM5 23h1v1h-1zM6 23h1v1h-1zM7 23h1v1h-1zM11 23h1v1h-1zM12 23h1v1h-1zM13 23h1v1h-1zM14 23h1v1h-1zM18 23h1v1h-1zM20 23h1v1h-1zM21 23h1v1h-1zM23 23h1v1h-1zM25 23h1v1h-1zM26 23h1v1h-1zM28 23h1v1h-1zM29 23h1v1h-1zM1 24h1v1h-1zM7 24h1v1h-1zM11 24h1v1h-1zM16 24h1v1h-1zM18 24h1v1h-1zM19 24h1v1h-1zM20 24h1v1h-1zM21 24h1v1h-1zM25 24h1v1h-1zM26 24h1v1h-1zM29 24h1v1h-1zM1 25h1v1h-1zM3 25h1v1h-1zM4 25h1v1h-1zM5 25h1v1h-1zM7 25h1v1h-1zM9 25h1v1h-1zM10 25h1v1h-1zM11 25h1v1h-1zM12 25h1v1h-1zM18 25h1v1h-1zM21 25h1v1h-1zM22 25h1v1h-1zM23 25h1v1h-1zM24 25h1v1h-1zM25 25h1v1h-1zM29 25h1v1h-1zM1 26h1v1h-1zM3 26h1v1h-1zM4 26h1v1h-1zM5 26h1v1h-1zM7 26h1v1h-1zM10 26h1v1h-1zM17 26h1v1h-1zM21 26h1v1h-1zM24 26h1v1h-1zM25 26h1v1h-1zM27 26h1v1h-1zM28 26h1v1h-1zM29 26h1v1h-1zM1 27h1v1h-1zM3 27h1v1h-1zM4 27h1v1h-1zM5 27h1v1h-1zM7 27h1v1h-1zM9 27h1v1h-1zM10 27h1v1h-1zM11 27h1v1h-1zM12 27h1v1h-1zM14 27h1v1h-1zM15 27h1v1h-1zM17 27h1v1h-1zM19 27h1v1h-1zM21 27h1v1h-1zM22 27h1v1h-1zM24 27h1v1h-1zM25 27h1v1h-1zM26 27h1v1h-1zM29 27h1v1h-1zM1 28h1v1h-1zM7 28h1v1h-1zM13 28h1v1h-1zM14 28h1v1h-1zM16 28h1v1h-1zM17 28h1v1h-1zM18 28h1v1h-1zM19 28h1v1h-1zM21 28h1v1h-1zM28 28h1v1h-1zM1 29h1v1h-1zM2 29h1v1h-1zM3 29h1v1h-1zM4 29h1v1h-1zM5 29h1v1h-1zM6 29h1v1h-1zM7 29h1v1h-1zM9 29h1v1h-1zM11 29h1v1h-1zM12 29h1v1h-1zM13 29h1v1h-1zM14 29h1v1h-1zM18 29h1v1h-1zM20 29h1v1h-1zM21 29h1v1h-1zM22 29h1v1h-1zM25 29h1v1h-1zM28 29h1v1h-1zM29 29h1v1h-1z" fill="#111827"/></svg></div><div><b data-t="scan"></b><div class="note">alfirdows.github.io/itqaan</div><button class="btn" id="shareBtn" style="margin-top:10px">↗ <span data-t="share"></span></button></div></div><span data-t="footer"></span> <a href="#credits" data-t="credits_link"></a> <span style="opacity:.6">· v9 (5 Nov 2026)</span></div></footer>
+<footer><div class="wrap"><div class="sharebox"><div><svg class="qr" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="QR code" viewBox="0 0 31 31" shape-rendering="crispEdges"><rect width="31" height="31" fill="#fff"/><path d="M1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM4 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM7 1h1v1h-1zM12 1h1v1h-1zM13 1h1v1h-1zM15 1h1v1h-1zM20 1h1v1h-1zM23 1h1v1h-1zM24 1h1v1h-1zM25 1h1v1h-1zM26 1h1v1h-1zM27 1h1v1h-1zM28 1h1v1h-1zM29 1h1v1h-1zM1 2h1v1h-1zM7 2h1v1h-1zM9 2h1v1h-1zM12 2h1v1h-1zM14 2h1v1h-1zM18 2h1v1h-1zM19 2h1v1h-1zM20 2h1v1h-1zM23 2h1v1h-1zM29 2h1v1h-1zM1 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM7 3h1v1h-1zM10 3h1v1h-1zM12 3h1v1h-1zM13 3h1v1h-1zM16 3h1v1h-1zM21 3h1v1h-1zM23 3h1v1h-1zM25 3h1v1h-1zM26 3h1v1h-1zM27 3h1v1h-1zM29 3h1v1h-1zM1 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM7 4h1v1h-1zM14 4h1v1h-1zM19 4h1v1h-1zM23 4h1v1h-1zM25 4h1v1h-1zM26 4h1v1h-1zM27 4h1v1h-1zM29 4h1v1h-1zM1 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM7 5h1v1h-1zM9 5h1v1h-1zM10 5h1v1h-1zM11 5h1v1h-1zM13 5h1v1h-1zM14 5h1v1h-1zM17 5h1v1h-1zM19 5h1v1h-1zM20 5h1v1h-1zM23 5h1v1h-1zM25 5h1v1h-1zM26 5h1v1h-1zM27 5h1v1h-1zM29 5h1v1h-1zM1 6h1v1h-1zM7 6h1v1h-1zM11 6h1v1h-1zM15 6h1v1h-1zM16 6h1v1h-1zM17 6h1v1h-1zM20 6h1v1h-1zM23 6h1v1h-1zM29 6h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1zM9 7h1v1h-1zM11 7h1v1h-1zM13 7h1v1h-1zM15 7h1v1h-1zM17 7h1v1h-1zM19 7h1v1h-1zM21 7h1v1h-1zM23 7h1v1h-1zM24 7h1v1h-1zM25 7h1v1h-1zM26 7h1v1h-1zM27 7h1v1h-1zM28 7h1v1h-1zM29 7h1v1h-1zM10 8h1v1h-1zM11 8h1v1h-1zM17 8h1v1h-1zM18 8h1v1h-1zM20 8h1v1h-1zM21 8h1v1h-1zM1 9h1v1h-1zM3 9h1v1h-1zM5 9h1v1h-1zM7 9h1v1h-1zM11 9h1v1h-1zM12 9h1v1h-1zM13 9h1v1h-1zM16 9h1v1h-1zM17 9h1v1h-1zM18 9h1v1h-1zM19 9h1v1h-1zM25 9h1v1h-1zM28 9h1v1h-1zM1 10h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM10 10h1v1h-1zM11 10h1v1h-1zM12 10h1v1h-1zM13 10h1v1h-1zM14 10h1v1h-1zM21 10h1v1h-1zM23 10h1v1h-1zM26 10h1v1h-1zM29 10h1v1h-1zM1 11h1v1h-1zM2 11h1v1h-1zM5 11h1v1h-1zM6 11h1v1h-1zM7 11h1v1h-1zM11 11h1v1h-1zM12 11h1v1h-1zM15 11h1v1h-1zM17 11h1v1h-1zM18 11h1v1h-1zM23 11h1v1h-1zM24 11h1v1h-1zM25 11h1v1h-1zM27 11h1v1h-1zM28 11h1v1h-1zM29 11h1v1h-1zM2 12h1v1h-1zM6 12h1v1h-1zM9 12h1v1h-1zM11 12h1v1h-1zM14 12h1v1h-1zM15 12h1v1h-1zM17 12h1v1h-1zM18 12h1v1h-1zM20 12h1v1h-1zM22 12h1v1h-1zM23 12h1v1h-1zM24 12h1v1h-1zM25 12h1v1h-1zM28 12h1v1h-1zM3 13h1v1h-1zM6 13h1v1h-1zM7 13h1v1h-1zM8 13h1v1h-1zM9 13h1v1h-1zM15 13h1v1h-1zM16 13h1v1h-1zM17 13h1v1h-1zM18 13h1v1h-1zM20 13h1v1h-1zM21 13h1v1h-1zM22 13h1v1h-1zM23 13h1v1h-1zM26 13h1v1h-1zM28 13h1v1h-1zM29 13h1v1h-1zM2 14h1v1h-1zM4 14h1v1h-1zM6 14h1v1h-1zM9 14h1v1h-1zM11 14h1v1h-1zM12 14h1v1h-1zM13 14h1v1h-1zM15 14h1v1h-1zM17 14h1v1h-1zM21 14h1v1h-1zM22 14h1v1h-1zM23 14h1v1h-1zM26 14h1v1h-1zM29 14h1v1h-1zM1 15h1v1h-1zM7 15h1v1h-1zM8 15h1v1h-1zM9 15h1v1h-1zM10 15h1v1h-1zM11 15h1v1h-1zM12 15h1v1h-1zM13 15h1v1h-1zM14 15h1v1h-1zM19 15h1v1h-1zM22 15h1v1h-1zM23 15h1v1h-1zM26 15h1v1h-1zM28 15h1v1h-1zM29 15h1v1h-1zM2 16h1v1h-1zM3 16h1v1h-1zM4 16h1v1h-1zM6 16h1v1h-1zM8 16h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM16 16h1v1h-1zM18 16h1v1h-1zM19 16h1v1h-1zM21 16h1v1h-1zM22 16h1v1h-1zM26 16h1v1h-1zM28 16h1v1h-1zM1 17h1v1h-1zM2 17h1v1h-1zM3 17h1v1h-1zM4 17h1v1h-1zM5 17h1v1h-1zM7 17h1v1h-1zM8 17h1v1h-1zM12 17h1v1h-1zM17 17h1v1h-1zM18 17h1v1h-1zM21 17h1v1h-1zM22 17h1v1h-1zM23 17h1v1h-1zM26 17h1v1h-1zM28 17h1v1h-1zM29 17h1v1h-1zM2 18h1v1h-1zM6 18h1v1h-1zM8 18h1v1h-1zM9 18h1v1h-1zM10 18h1v1h-1zM11 18h1v1h-1zM14 18h1v1h-1zM17 18h1v1h-1zM21 18h1v1h-1zM22 18h1v1h-1zM23 18h1v1h-1zM26 18h1v1h-1zM27 18h1v1h-1zM29 18h1v1h-1zM1 19h1v1h-1zM4 19h1v1h-1zM7 19h1v1h-1zM10 19h1v1h-1zM11 19h1v1h-1zM12 19h1v1h-1zM13 19h1v1h-1zM15 19h1v1h-1zM18 19h1v1h-1zM21 19h1v1h-1zM22 19h1v1h-1zM25 19h1v1h-1zM28 19h1v1h-1zM29 19h1v1h-1zM2 20h1v1h-1zM3 20h1v1h-1zM4 20h1v1h-1zM5 20h1v1h-1zM10 20h1v1h-1zM14 20h1v1h-1zM15 20h1v1h-1zM16 20h1v1h-1zM18 20h1v1h-1zM19 20h1v1h-1zM21 20h1v1h-1zM23 20h1v1h-1zM25 20h1v1h-1zM26 20h1v1h-1zM28 20h1v1h-1zM1 21h1v1h-1zM4 21h1v1h-1zM6 21h1v1h-1zM7 21h1v1h-1zM9 21h1v1h-1zM11 21h1v1h-1zM13 21h1v1h-1zM15 21h1v1h-1zM17 21h1v1h-1zM18 21h1v1h-1zM19 21h1v1h-1zM20 21h1v1h-1zM21 21h1v1h-1zM22 21h1v1h-1zM23 21h1v1h-1zM24 21h1v1h-1zM25 21h1v1h-1zM9 22h1v1h-1zM10 22h1v1h-1zM11 22h1v1h-1zM12 22h1v1h-1zM15 22h1v1h-1zM17 22h1v1h-1zM20 22h1v1h-1zM21 22h1v1h-1zM25 22h1v1h-1zM27 22h1v1h-1zM28 22h1v1h-1zM29 22h1v1h-1zM1 23h1v1h-1zM2 23h1v1h-1zM3 23h1v1h-1zM4 23h1v1h-1zM5 23h1v1h-1zM6 23h1v1h-1zM7 23h1v1h-1zM11 23h1v1h-1zM12 23h1v1h-1zM13 23h1v1h-1zM14 23h1v1h-1zM18 23h1v1h-1zM20 23h1v1h-1zM21 23h1v1h-1zM23 23h1v1h-1zM25 23h1v1h-1zM26 23h1v1h-1zM28 23h1v1h-1zM29 23h1v1h-1zM1 24h1v1h-1zM7 24h1v1h-1zM11 24h1v1h-1zM16 24h1v1h-1zM18 24h1v1h-1zM19 24h1v1h-1zM20 24h1v1h-1zM21 24h1v1h-1zM25 24h1v1h-1zM26 24h1v1h-1zM29 24h1v1h-1zM1 25h1v1h-1zM3 25h1v1h-1zM4 25h1v1h-1zM5 25h1v1h-1zM7 25h1v1h-1zM9 25h1v1h-1zM10 25h1v1h-1zM11 25h1v1h-1zM12 25h1v1h-1zM18 25h1v1h-1zM21 25h1v1h-1zM22 25h1v1h-1zM23 25h1v1h-1zM24 25h1v1h-1zM25 25h1v1h-1zM29 25h1v1h-1zM1 26h1v1h-1zM3 26h1v1h-1zM4 26h1v1h-1zM5 26h1v1h-1zM7 26h1v1h-1zM10 26h1v1h-1zM17 26h1v1h-1zM21 26h1v1h-1zM24 26h1v1h-1zM25 26h1v1h-1zM27 26h1v1h-1zM28 26h1v1h-1zM29 26h1v1h-1zM1 27h1v1h-1zM3 27h1v1h-1zM4 27h1v1h-1zM5 27h1v1h-1zM7 27h1v1h-1zM9 27h1v1h-1zM10 27h1v1h-1zM11 27h1v1h-1zM12 27h1v1h-1zM14 27h1v1h-1zM15 27h1v1h-1zM17 27h1v1h-1zM19 27h1v1h-1zM21 27h1v1h-1zM22 27h1v1h-1zM24 27h1v1h-1zM25 27h1v1h-1zM26 27h1v1h-1zM29 27h1v1h-1zM1 28h1v1h-1zM7 28h1v1h-1zM13 28h1v1h-1zM14 28h1v1h-1zM16 28h1v1h-1zM17 28h1v1h-1zM18 28h1v1h-1zM19 28h1v1h-1zM21 28h1v1h-1zM28 28h1v1h-1zM1 29h1v1h-1zM2 29h1v1h-1zM3 29h1v1h-1zM4 29h1v1h-1zM5 29h1v1h-1zM6 29h1v1h-1zM7 29h1v1h-1zM9 29h1v1h-1zM11 29h1v1h-1zM12 29h1v1h-1zM13 29h1v1h-1zM14 29h1v1h-1zM18 29h1v1h-1zM20 29h1v1h-1zM21 29h1v1h-1zM22 29h1v1h-1zM25 29h1v1h-1zM28 29h1v1h-1zM29 29h1v1h-1z" fill="#111827"/></svg></div><div><b data-t="scan"></b><div class="note">alfirdows.github.io/itqaan</div><button class="btn" id="shareBtn" style="margin-top:10px">↗ <span data-t="share"></span></button></div></div><span data-t="footer"></span> <a href="#history" data-t="hist_link"></a> · <a href="#credits" data-t="credits_link"></a> <span style="opacity:.6">· v9 (5 Nov 2026)</span></div></footer>
 <div id="pop" role="dialog" aria-modal="true"><div class="sheet" id="popc"></div></div>
 
 <script>
@@ -835,7 +844,7 @@ const audioURL=key=>{const [s,a]=key.split(":");return `https://everyayah.com/da
 function refHTML(key){
   const [s,a]=key.split(":");
   const name=SURAH[s][lang==="ar"?0:1];
-  return `<div class="ref"><span>${esc(name)}${lang==="ar"?"، ":" · "}${num(s)}:${num(a)}</span><button class="term" data-v="${key}" style="border:none;color:var(--brand)">📖 ${t("tap_meaning")}</button><button class="play" data-play="${key}">🔊 ${t("listen")}</button></div>`;
+  return `<div class="ref"><span>${esc(name)}${lang==="ar"?"، ":" · "}${num(s)}:${num(a)}</span><button class="term" data-v="${key}" style="border:none;color:var(--brand)">📖 ${t("tap_meaning")}</button><button class="play" data-play="${key}">🔊 ${t("listen")}</button><button class="term" data-rec="${key}" style="border:none;color:var(--brand)">🎤 ${t("rc_btn")}</button></div>`;
 }
 function makeFind(q,allowed){
   const pool=shuffle(QS.filter(o=>(!allowed||allowed.has(o.rule))&&o.rule!==q.rule&&!o.also.includes(q.rule)&&!q.also.includes(o.rule)&&o.hl!==q.hl));
@@ -1063,7 +1072,8 @@ function home(){
     <div class="card stat"><b>${lang==="ar"?num(acc).replace("%","٪"):acc}</b><span>${t("s_acc")}</span></div>
     <div class="card stat"><b>${stats.best==null?"–":num(stats.best)+"/"+num(10)}</b><span>${t("s_best")}</span></div>
     <div class="card stat"><b>${num(Object.keys(mistakes).length)}</b><span>${t("s_review")}</span></div>
-  </section>`;
+  </section>
+  <p style="margin-top:16px"><a class="btn ghost" href="#history" style="text-decoration:none">${t("hist_link")}</a></p>`;
 }
 
 let learnCat="all";
@@ -1185,7 +1195,7 @@ function test(){
     if(X.i<9){X.i++;test();return}
     X.done=true;X.secs=Math.floor((Date.now()-X.start)/1000);
     let sc=0;X.qs.forEach((q,i)=>{const ok=isRight(X.Bs[i],X.ans[i]);if(ok)sc++;record(q,ok,"test")});
-    X.score=sc; if(stats.best==null||sc>stats.best){stats.best=sc;saveStats()} test();
+    X.score=sc; logHist("test","test",sc,10); if(stats.best==null||sc>stats.best){stats.best=sc;saveStats()} test();
   };
 }
 function testResult(){
@@ -1330,7 +1340,7 @@ function lessonRun(){setTimeout(()=>{const c=app.querySelector(".card");if(c){c.
   if(g("lnext"))g("lnext").onclick=()=>startLesson(LESSONS[LESSONS.indexOf(id)+1]);
   if(g("lnx"))g("lnx").onclick=()=>{
     if(LS.qi<0){ if(LS.step<LS.steps.length-1)LS.step++; else LS.qi=0; }
-    else { if(LS.qi<LS.quiz.length-1)LS.qi++; else { LS.qi=-2; if(!doneL.includes(id)){doneL.push(id);saveDone()} P.q=null; addStars(50); setTimeout(confetti,50); } }
+    else { if(LS.qi<LS.quiz.length-1)LS.qi++; else { LS.qi=-2; logHist("lesson",id,LS.score,LS.quiz.length); if(!doneL.includes(id)){doneL.push(id);saveDone()} P.q=null; addStars(50); setTimeout(confetti,50); } }
     lessonRun();scrollTo(0,0);
   };
   if(LS.qi<0&&LS.steps[LS.step].kind==="tap"){const st=LS.steps[LS.step],v=VIS[st.r.id];
@@ -1444,6 +1454,247 @@ function sayCard(btn){const S=window.speechSynthesis;if(!S){btn.disabled=true;re
 document.addEventListener("click",e=>{const s=e.target.closest("[data-say]");if(s){e.preventDefault();e.stopPropagation();sayCard(s);return}
   const w=e.target.closest("[data-vw]");if(w){e.preventDefault();e.stopPropagation();const [k,i]=w.dataset.vw.split("|");playWord(k,+i,w);return}},true);
 document.addEventListener("click",e=>{const b=e.target.closest("[data-play]");if(b){e.preventDefault();e.stopPropagation();play(b.dataset.play)}},true);
+/* ---------- My history, backup code & recitation check ---------- */
+Object.assign(T.en,{
+  hist_link:"📜 My history", hist_title:"My history", hist_lead:"Everything you did is saved on this phone. Nothing is lost.",
+  hist_empty:"Nothing here yet. Finish a lesson or a test and it shows up here 🌱",
+  h_lessons:"Lessons done", h_tests:"Tests taken", h_recites:"Recitations",
+  h_test:"Test", h_recite:"Recitation", h_words:"words heard",
+  bk_title:"📦 Backup code", bk_lead:"Moving to a new phone? Copy this code, keep it somewhere safe (like your notes), then paste it on the new phone.",
+  bk_make:"Show my code", bk_copy:"Copy", bk_copied:"Copied ✓", bk_paste:"Paste a code here", bk_restore:"Bring back my progress",
+  bk_bad:"Hmm, that code doesn't look right. Try copying it again 💛", bk_sure:"This replaces the progress on this phone with the code's progress. OK?", bk_done:"Done! Your progress is back ✨",
+  rc_btn:"Recite", rc_title:"Recite to me", rc_lead:"Read the verse out loud. I'll listen and show which words I heard.",
+  rc_start:"🎤 Start", rc_stop:"⏹ Done", rc_listening:"Listening… read slowly 👂",
+  rc_res:"I heard {a} of {b} words", rc_all:"Every word! Beautiful ✨", rc_some:"Orange words: try them again, slowly 💛",
+  rc_none:"I couldn't hear you. Hold the phone closer and try again 💛", rc_nosr:"This browser can't listen. Try Chrome on your phone. You can still record yourself below.",
+  rc_mic:"Please allow the microphone, then try again.",
+  rc_note:"I check your words, not tajweed rules. To check your tajweed, record yourself and compare with the sheikh.",
+  rc_rec:"⏺ Record myself", rc_recstop:"⏹ Stop recording", rc_you:"You", rc_sheikh:"Sheikh Ibrahim Al-Akhdar", rc_again:"↺ Try again"
+});
+Object.assign(T.ar,{
+  hist_link:"📜 سجلّي", hist_title:"سجلّي", hist_lead:"كل ما فعلته محفوظ على هذا الهاتف. لا يضيع شيء.",
+  hist_empty:"لا شيء هنا بعد. أتمّ درسًا أو اختبارًا وسيظهر هنا 🌱",
+  h_lessons:"دروس مكتملة", h_tests:"اختبارات", h_recites:"تلاوات",
+  h_test:"اختبار", h_recite:"تلاوة", h_words:"كلمات سُمعت",
+  bk_title:"📦 رمز النسخة الاحتياطية", bk_lead:"ستنتقل إلى هاتف جديد؟ انسخ هذا الرمز واحفظه (في الملاحظات مثلًا)، ثم الصقه في الهاتف الجديد.",
+  bk_make:"أظهر رمزي", bk_copy:"نسخ", bk_copied:"تم النسخ ✓", bk_paste:"الصق الرمز هنا", bk_restore:"أرجع تقدّمي",
+  bk_bad:"يبدو أن الرمز غير صحيح. جرّب نسخه مرة أخرى 💛", bk_sure:"سيحلّ تقدّم الرمز محلّ التقدّم الموجود على هذا الهاتف. موافق؟", bk_done:"تم! رجع تقدّمك ✨",
+  rc_btn:"اقرأ", rc_title:"اقرأ عليّ", rc_lead:"اقرأ الآية بصوت مسموع، وسأستمع وأُريك الكلمات التي سمعتها.",
+  rc_start:"🎤 ابدأ", rc_stop:"⏹ انتهيت", rc_listening:"أستمع… اقرأ ببطء 👂",
+  rc_res:"سمعت {a} من {b} كلمات", rc_all:"كل الكلمات! ما شاء الله ✨", rc_some:"الكلمات البرتقالية: أعدها ببطء 💛",
+  rc_none:"لم أسمعك. قرّب الهاتف وحاول مرة أخرى 💛", rc_nosr:"هذا المتصفح لا يستطيع الاستماع. جرّب Chrome. ويمكنك تسجيل صوتك في الأسفل.",
+  rc_mic:"اسمح باستخدام الميكروفون ثم حاول مرة أخرى.",
+  rc_note:"أنا أتحقق من الكلمات، لا من أحكام التجويد. لتتحقق من تجويدك سجّل صوتك وقارنه بالشيخ.",
+  rc_rec:"⏺ سجّل صوتي", rc_recstop:"⏹ أوقف التسجيل", rc_you:"أنت", rc_sheikh:"الشيخ إبراهيم الأخضر", rc_again:"↺ أعد المحاولة"
+});
+
+/* History log: {d:time, k:"lesson"|"test"|"recite", id, s:score, n:total} */
+let hist=store.get("hist",[]);
+function logHist(k,id,s,n){hist.push({d:Date.now(),k,id,s,n});if(hist.length>300)hist=hist.slice(-300);store.set("hist",hist)}
+function histName(h){
+  if(h.k==="test")return t("h_test");
+  if(h.k==="recite"){const [s,a]=h.id.split(":");return t("h_recite")+" · "+SURAH[s][lang==="ar"?0:1]+" "+num(s)+":"+num(a)}
+  try{return lTitle(h.id)}catch(e){return h.id}
+}
+function historyView(){
+  const A=lang==="ar",fmt=d=>new Date(d).toLocaleDateString(A?"ar":"en",{weekday:"short",day:"numeric",month:"short"});
+  const cnt=k=>hist.filter(h=>h.k===k).length;
+  const rows=hist.slice().reverse().slice(0,40).map(h=>{
+    const ic=h.k==="test"?"⏱":h.k==="recite"?"🎤":"🌱",pct=h.n?h.s/h.n*100:0;
+    return `<div class="card hrow"><div class="hic">${ic}</div><div style="flex:1;min-width:0"><div class="note">${esc(fmt(h.d))}</div><b>${esc(histName(h))}</b>
+      <div class="lvbar"><i style="width:${pct}%"></i></div></div><div class="hsc">${num(h.s)}/${num(h.n)}${h.k==="recite"?`<small>${t("h_words")}</small>`:""}</div></div>`}).join("");
+  app.innerHTML=`<h1>${t("hist_title")}</h1><p class="lead">${t("hist_lead")}</p>
+  <section class="stats" style="margin:0 0 22px">
+    <div class="card stat"><b>${num(doneL.length)}/${num(LESSONS.length)}</b><span>${t("h_lessons")}</span></div>
+    <div class="card stat"><b>${num(cnt("test"))}</b><span>${t("h_tests")}</span></div>
+    <div class="card stat"><b>${num(cnt("recite"))}</b><span>${t("h_recites")}</span></div>
+    <div class="card stat"><b>⭐ ${num(G.stars)}</b><span>${t("stars")}</span></div>
+  </section>
+  <div class="grid" style="gap:10px">${rows||`<div class="card empty"><div class="big">🌱</div><p style="font-size:18px">${t("hist_empty")}</p></div>`}</div>
+  <div class="card pad" style="margin-top:28px"><h2 style="margin-top:0">${t("bk_title")}</h2><p>${t("bk_lead")}</p>
+    <button class="btn" id="bkMake">${t("bk_make")}</button>
+    <div id="bkOut" hidden style="margin-top:12px"><textarea id="bkCode" class="bkta" readonly dir="ltr"></textarea><button class="btn ghost" id="bkCopy" style="margin-top:8px">${t("bk_copy")}</button></div>
+    <hr style="border:none;border-top:1px solid var(--line);margin:22px 0">
+    <textarea id="bkIn" class="bkta" dir="ltr" placeholder="${t("bk_paste")}"></textarea>
+    <button class="btn ghost" id="bkRestore" style="margin-top:8px">${t("bk_restore")}</button><div id="bkMsg" class="note" style="margin-top:8px"></div>
+  </div>`;
+  document.getElementById("bkMake").onclick=()=>{
+    const o={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k.startsWith("itqan:"))o[k]=localStorage.getItem(k)}
+    document.getElementById("bkCode").value="ITQ1:"+btoa(unescape(encodeURIComponent(JSON.stringify(o))));
+    document.getElementById("bkOut").hidden=false};
+  document.getElementById("bkCopy").onclick=e=>{const ta=document.getElementById("bkCode");ta.select();
+    (navigator.clipboard?navigator.clipboard.writeText(ta.value):Promise.reject()).catch(()=>document.execCommand("copy")).finally(()=>e.target.textContent=t("bk_copied"))};
+  document.getElementById("bkRestore").onclick=()=>{
+    const msg=document.getElementById("bkMsg"),v=document.getElementById("bkIn").value.trim();let o;
+    try{if(!v.startsWith("ITQ1:"))throw 0;o=JSON.parse(decodeURIComponent(escape(atob(v.slice(5)))));if(typeof o!=="object"||!Object.keys(o).every(k=>k.startsWith("itqan:")))throw 0}
+    catch(e){msg.textContent=t("bk_bad");return}
+    if(!confirm(t("bk_sure")))return;
+    Object.keys(localStorage).filter(k=>k.startsWith("itqan:")).forEach(k=>localStorage.removeItem(k));
+    for(const k in o)localStorage.setItem(k,o[k]);
+    msg.textContent=t("bk_done");setTimeout(()=>{location.hash="#history";location.reload()},900)};
+}
+views.history=historyView;
+
+/* Recitation: the phone's own speech recognition checks words; MediaRecorder lets you compare with the sheikh */
+function normAr(s){return s.replace(/ٰ/g,"ا").replace(/[ؐ-ًؚ-ٟۖ-ۭـء]/g,"")
+  .replace(/[ٱآأإ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه").replace(/ؤ/g,"و").replace(/ئ/g,"ي")
+  .replace(/[^ء-ي]/g,"")}
+function lev(a,b){const m=a.length,n=b.length;let p=Array.from({length:n+1},(_,i)=>i);
+  for(let i=1;i<=m;i++){const c=[i];for(let j=1;j<=n;j++)c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}return p[n]}
+const simAr=(a,b)=>{const f=(x,y)=>1-lev(x,y)/Math.max(x.length,y.length,1),na=s=>s.replace(/ا/g,"");return Math.max(f(a,b),f(na(a),na(b)))};
+function matchWords(key,said){
+  const vw=V[key].split(/\s+/).map(w=>({w,n:normAr(w)})).filter(x=>x.n);
+  const sw=said.split(/\s+/).map(normAr).filter(Boolean);let j=0;
+  vw.forEach(x=>{for(let k=j;k<Math.min(sw.length,j+4);k++){if(simAr(x.n,sw[k])>=.65){x.ok=true;j=k+1;break}}});
+  return vw;
+}
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+let RC=null;
+function rcStop(){if(!RC)return;try{RC.sr&&RC.sr.abort()}catch(e){}try{RC.mr&&RC.mr.state!=="inactive"&&RC.mr.stop()}catch(e){}
+  if(RC.stream)RC.stream.getTracks().forEach(x=>x.stop());RC.sr=null}
+const _closePop=closePop;closePop=function(){rcStop();_closePop()};
+function rcOpen(key){rcStop();RC={key,state:"idle",heard:"",res:null,you:null,rec:false};rcDraw()}
+function rcDraw(){
+  const key=RC.key,[s,a]=key.split(":");
+  const words=RC.res?RC.res.map(x=>`<span class="rw ${x.ok?"ok":"no"}">${esc(x.w)}</span>`).join(" "):esc(V[key]);
+  let res="";
+  if(RC.res){const ok=RC.res.filter(x=>x.ok).length,n=RC.res.length;
+    res=ok===0?`<div class="fb no">${t("rc_none")}</div>`:`<div class="fb ${ok===n?"ok":""}" style="${ok===n?"":"background:var(--gold-soft)"}"><b>${t("rc_res",{a:num(ok),b:num(n)})}</b><div>${ok===n?t("rc_all"):t("rc_some")}</div></div>`}
+  openPop(`<h3>🎤 ${t("rc_title")} · ${esc(SURAH[s][lang==="ar"?0:1])} ${num(s)}:${num(a)}</h3>
+    <p class="note" style="margin-top:0">${t("rc_lead")}</p>
+    <div class="ayah rcv">${words}</div>
+    ${RC.state==="listen"?`<div class="note rclive">${t("rc_listening")}<div dir="rtl">${esc(RC.heard)}</div></div>`:""}
+    ${res}${RC.err?`<div class="fb no">${RC.err}</div>`:""}
+    <div class="row" style="justify-content:flex-start;margin-top:14px">
+      ${SR?(RC.state==="listen"?`<button class="btn" id="rcGo">${t("rc_stop")}</button>`:`<button class="btn" id="rcGo">${RC.res?t("rc_again"):t("rc_start")}</button>`):`<div class="note">${t("rc_nosr")}</div>`}
+    </div>
+    <hr style="border:none;border-top:1px solid var(--line);margin:18px 0">
+    <button class="btn ghost" id="rcRec" ${RC.state==="listen"?"disabled":""}>${RC.rec?t("rc_recstop"):t("rc_rec")}</button>
+    ${RC.you?`<div class="rcaud"><div class="note">${t("rc_you")}</div><audio controls src="${RC.you}"></audio></div>`:""}
+    <div class="rcaud"><div class="note">${t("rc_sheikh")}</div><audio controls preload="none" src="${audioURL(key)}"></audio></div>
+    <p class="note" style="margin-top:14px">💡 ${t("rc_note")}</p>`);
+  const go=document.getElementById("rcGo");if(go)go.onclick=()=>RC.state==="listen"?RC.sr&&RC.sr.stop():rcListen();
+  document.getElementById("rcRec").onclick=()=>RC.rec?RC.mr.stop():rcRecord();
+}
+function rcListen(){
+  const sr=new SR();sr.lang="ar-SA";sr.continuous=true;sr.interimResults=true;
+  let fin="";RC.sr=sr;RC.state="listen";RC.heard="";RC.res=null;RC.err=null;rcDraw();
+  sr.onresult=e=>{let live="";for(let i=e.resultIndex;i<e.results.length;i++){if(e.results[i].isFinal)fin+=" "+e.results[i][0].transcript;else live+=" "+e.results[i][0].transcript}
+    RC.heard=(fin+live).trim();const el=document.querySelector(".rclive div");if(el)el.textContent=RC.heard};
+  sr.onerror=e=>{if(e.error==="not-allowed"||e.error==="service-not-allowed")RC.err=t("rc_mic")};
+  sr.onend=()=>{if(!RC||RC.sr!==sr)return;RC.sr=null;RC.state="idle";const said=(RC.heard||fin).trim();
+    if(!RC.err){RC.res=matchWords(RC.key,said);const ok=RC.res.filter(x=>x.ok).length;if(ok){logHist("recite",RC.key,ok,RC.res.length);if(ok===RC.res.length)addStars(10)}}
+    rcDraw()};
+  try{sr.start()}catch(e){RC.state="idle";RC.err=t("rc_nosr");rcDraw()}
+}
+async function rcRecord(){
+  const me=RC;
+  try{me.stream=await navigator.mediaDevices.getUserMedia({audio:true})}catch(e){me.err=t("rc_mic");return rcDraw()}
+  const mr=new MediaRecorder(me.stream),parts=[];me.mr=mr;
+  mr.ondataavailable=e=>e.data.size&&parts.push(e.data);
+  mr.onstop=()=>{me.stream.getTracks().forEach(x=>x.stop());me.rec=false;if(me.you)URL.revokeObjectURL(me.you);
+    me.you=URL.createObjectURL(new Blob(parts,{type:mr.mimeType||"audio/webm"}));if(RC===me&&pop.classList.contains("on"))rcDraw()};
+  mr.start();me.rec=true;me.err=null;rcDraw();setTimeout(()=>{if(mr.state==="recording")mr.stop()},90000);
+}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-rec]");if(b){e.preventDefault();e.stopPropagation();rcOpen(b.dataset.rec)}},true);
+
+/* ---------- Free accounts (Firebase: Google or email sign-in; progress syncs between devices) ---------- */
+/* Paste the web-app config from the Firebase console here. These values are public by design; the database rules keep each person's data private. */
+const FIREBASE_CONFIG=null;
+Object.assign(T.en,{
+  hist_link:"📜 My history & account",
+  ac_title:"☁️ Your account", ac_lead:"Make a free account so your progress is safe and works on any phone or computer.",
+  ac_google:"Continue with Google", ac_or:"or use your email", ac_email:"Email", ac_pass:"Password (6+ letters)",
+  ac_in:"Sign in", ac_new:"Create account", ac_forgot:"Forgot password?", ac_sent:"Check your email for a reset link 💌",
+  ac_hi:"Signed in as {e} ✓", ac_sync:"Your progress saves by itself.", ac_out:"Sign out", ac_del:"Delete my account",
+  ac_delsure:"This deletes your account and its saved progress forever. Your progress stays on this phone. OK?",
+  ac_busy:"One moment…", ac_err:"That didn't work. Check your email and password and try again 💛", ac_short:"The password needs at least 6 letters.",
+  ac_used:"This email already has an account. Tap Sign in instead.", ac_relog:"For safety, sign out, sign in again, then delete.",
+  ac_off:"I can't reach the account service right now. Your progress is still saved on this phone."
+});
+Object.assign(T.ar,{
+  hist_link:"📜 سجلّي وحسابي",
+  ac_title:"☁️ حسابك", ac_lead:"أنشئ حسابًا مجانيًا ليبقى تقدّمك محفوظًا ويعمل على أي هاتف أو حاسوب.",
+  ac_google:"المتابعة بحساب Google", ac_or:"أو استخدم بريدك", ac_email:"البريد الإلكتروني", ac_pass:"كلمة المرور (٦ أحرف أو أكثر)",
+  ac_in:"تسجيل الدخول", ac_new:"إنشاء حساب", ac_forgot:"نسيت كلمة المرور؟", ac_sent:"افتح بريدك، أرسلنا رابط إعادة التعيين 💌",
+  ac_hi:"أنت مسجّل باسم {e} ✓", ac_sync:"يُحفظ تقدّمك تلقائيًا.", ac_out:"تسجيل الخروج", ac_del:"حذف حسابي",
+  ac_delsure:"سيُحذف حسابك وتقدّمه المحفوظ نهائيًا، ويبقى التقدّم على هذا الهاتف. موافق؟",
+  ac_busy:"لحظة…", ac_err:"لم ينجح ذلك. تأكد من البريد وكلمة المرور وحاول مرة أخرى 💛", ac_short:"كلمة المرور تحتاج ٦ أحرف على الأقل.",
+  ac_used:"لهذا البريد حساب من قبل. اضغط تسجيل الدخول.", ac_relog:"للأمان: سجّل الخروج ثم الدخول من جديد، ثم احذف.",
+  ac_off:"لا أستطيع الوصول إلى خدمة الحسابات الآن. تقدّمك ما زال محفوظًا على هذا الهاتف."
+});
+const ACC={on:!!FIREBASE_CONFIG,user:null,msg:"",busy:false,fb:null};
+const FBV="https://www.gstatic.com/firebasejs/10.12.2/";
+function localData(){const o={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k.startsWith("itqan:")&&k!=="itqan:resume")o[k]=localStorage.getItem(k)}return o}
+/* Merge two saves so nothing is lost: stars/days take the max, lessons and history are combined */
+function mergeData(a,b){
+  const J=(o,k,d)=>{try{return o[k]!=null?JSON.parse(o[k]):d}catch(e){return d}},out={...b,...a};
+  const ga=J(a,"itqan:game",null),gb=J(b,"itqan:game",null);
+  if(ga&&gb)out["itqan:game"]=JSON.stringify({...gb,...ga,stars:Math.max(ga.stars||0,gb.stars||0),days:Math.max(ga.days||0,gb.days||0),last:[ga.last,gb.last].filter(Boolean).sort().pop()||null});
+  const da=J(a,"itqan:done",[]),db=J(b,"itqan:done",[]);out["itqan:done"]=JSON.stringify([...new Set([...db,...da])]);
+  const ha=J(a,"itqan:hist",[]),hb=J(b,"itqan:hist",[]),seen=new Set();
+  out["itqan:hist"]=JSON.stringify([...hb,...ha].filter(h=>{const k=h.d+h.k+h.id;if(seen.has(k))return false;seen.add(k);return true}).sort((x,y)=>x.d-y.d).slice(-300));
+  const sa=J(a,"itqan:stats",null),sb=J(b,"itqan:stats",null);
+  if(sa&&sb){const m=(sa.answered||0)>=(sb.answered||0)?sa:sb;out["itqan:stats"]=JSON.stringify({...m,best:Math.max(sa.best??-1,sb.best??-1)<0?null:Math.max(sa.best??-1,sb.best??-1)})}
+  return out;
+}
+async function fbLoad(){
+  if(ACC.fb)return ACC.fb;
+  const [app,auth,fs]=await Promise.all(["firebase-app.js","firebase-auth.js","firebase-firestore.js"].map(f=>import(FBV+f)));
+  const a=app.initializeApp(FIREBASE_CONFIG);
+  ACC.fb={auth,fs,A:auth.getAuth(a),D:fs.getFirestore(a)};return ACC.fb;
+}
+let acTimer=null;
+function cloudPush(){if(!ACC.user)return;clearTimeout(acTimer);acTimer=setTimeout(async()=>{
+  try{const {fs,D}=ACC.fb;await fs.setDoc(fs.doc(D,"users",ACC.user.uid),{data:localData(),updated:Date.now()})}catch(e){console.warn(e)}},2500)}
+const _storeSet=store.set;store.set=function(k,v){_storeSet.call(store,k,v);if(k!=="resume")cloudPush()};
+async function cloudPull(){
+  const {fs,D}=ACC.fb,ref=fs.doc(D,"users",ACC.user.uid),snap=await fs.getDoc(ref);
+  const local=localData(),cloud=snap.exists()?(snap.data().data||{}):{};
+  const merged=mergeData(local,cloud);
+  await fs.setDoc(ref,{data:merged,updated:Date.now()});
+  const changed=Object.keys(merged).some(k=>merged[k]!==local[k]);
+  if(changed){for(const k in merged)localStorage.setItem(k,merged[k]);location.reload()}
+}
+async function acInit(){
+  if(!ACC.on)return;
+  try{const {auth,A}=await fbLoad();
+    auth.getRedirectResult(A).catch(()=>{});
+    auth.onAuthStateChanged(A,async u=>{ACC.user=u;if(u){try{await cloudPull()}catch(e){console.warn(e)}}if(current==="history")views.history()});
+  }catch(e){ACC.off=true;console.warn(e)}
+}
+function acErr(e){const c=e&&e.code||"";return c.includes("weak-password")?t("ac_short"):c.includes("email-already-in-use")?t("ac_used"):c.includes("requires-recent-login")?t("ac_relog"):t("ac_err")}
+function acCard(){
+  if(!ACC.on)return "";
+  if(ACC.off)return `<div class="card pad acc"><h2>${t("ac_title")}</h2><p class="note">${t("ac_off")}</p></div>`;
+  if(ACC.user)return `<div class="card pad acc"><h2>${t("ac_title")}</h2><p style="font-size:18px;margin:0 0 4px"><b>${t("ac_hi",{e:esc(ACC.user.email||ACC.user.displayName||"")})}</b></p><p>${t("ac_sync")}</p>
+    <div class="row" style="justify-content:flex-start"><button class="btn ghost" id="acOut">${t("ac_out")}</button><button class="chip" id="acDel" style="color:var(--bad)">${t("ac_del")}</button></div><div class="note" id="acMsg">${esc(ACC.msg)}</div></div>`;
+  return `<div class="card pad acc"><h2>${t("ac_title")}</h2><p>${t("ac_lead")}</p>
+    <button class="btn" id="acG" style="width:100%">G&nbsp; ${t("ac_google")}</button>
+    <div class="note" style="text-align:center;margin:14px 0 8px">${t("ac_or")}</div>
+    <input class="acin" id="acE" type="email" autocomplete="email" placeholder="${t("ac_email")}" dir="ltr">
+    <input class="acin" id="acP" type="password" autocomplete="current-password" placeholder="${t("ac_pass")}" dir="ltr">
+    <div class="row" style="justify-content:flex-start;margin-top:10px"><button class="btn" id="acIn">${t("ac_in")}</button><button class="btn ghost" id="acNew">${t("ac_new")}</button></div>
+    <button class="chip" id="acForgot" style="margin-top:10px">${t("ac_forgot")}</button>
+    <div class="note" id="acMsg" style="margin-top:8px">${ACC.busy?t("ac_busy"):esc(ACC.msg)}</div></div>`;
+}
+function acBind(){
+  if(!ACC.on||ACC.off)return;const $=id=>document.getElementById(id);
+  const run=async f=>{ACC.busy=true;ACC.msg="";$("acMsg").textContent=t("ac_busy");try{await f(ACC.fb)}catch(e){console.warn(e);ACC.msg=acErr(e)}ACC.busy=false;if(current==="history")views.history()};
+  if(ACC.user){
+    $("acOut").onclick=()=>run(({auth,A})=>auth.signOut(A));
+    $("acDel").onclick=()=>{if(confirm(t("ac_delsure")))run(async({fs,D,A})=>{const u=A.currentUser;await fs.deleteDoc(fs.doc(D,"users",u.uid));await u.delete()})};
+    return;
+  }
+  const ep=()=>[$("acE").value.trim(),$("acP").value];
+  $("acG").onclick=()=>run(async({auth,A})=>{const p=new auth.GoogleAuthProvider();
+    try{await auth.signInWithPopup(A,p)}catch(e){if(/popup|operation-not-supported/.test(e.code||""))await auth.signInWithRedirect(A,p);else throw e}});
+  $("acIn").onclick=()=>run(({auth,A})=>auth.signInWithEmailAndPassword(A,...ep()));
+  $("acNew").onclick=()=>run(({auth,A})=>auth.createUserWithEmailAndPassword(A,...ep()));
+  $("acForgot").onclick=()=>run(async({auth,A})=>{await auth.sendPasswordResetEmail(A,ep()[0]);ACC.msg=t("ac_sent")});
+}
+const _histView=views.history;views.history=function(){_histView();const h=app.querySelector("h1");if(h&&ACC.on){h.nextElementSibling.insertAdjacentHTML("afterend",acCard());acBind()}};
+
 /* ---------- Shell ---------- */
 function applyLang(){
   const h=document.documentElement; h.lang=lang; h.dir=lang==="ar"?"rtl":"ltr";
@@ -1476,7 +1727,7 @@ document.addEventListener("click",e=>{if(e.target.closest&&e.target.closest("#lp
   const b=document.getElementById(next?"lnx":"lprev");if(b&&!b.disabled){flipDir=next?1:-1;b.click()}},{passive:true});
 })();
 new MutationObserver(()=>{const has=!!app.querySelector(".term:not([data-v])");app.querySelectorAll(".tip").forEach(t=>t.hidden=!has)}).observe(app,{childList:true,subtree:true});
-applyLang(); renderPill(); route();
+applyLang(); renderPill(); route(); acInit();
 </script>
 </body>
 </html>
