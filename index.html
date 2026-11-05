@@ -241,7 +241,8 @@ html[dir=rtl] .ladder{flex-direction:row-reverse}
 :root{--m-fat:#d32f2f;--m-kas:#1565c0;--m-dam:#2e7d32;--m-suk:#7b1fa2;--m-sha:#e65100;--m-mad:#00838f}
 @media (prefers-color-scheme:dark){:root{--m-fat:#ff6b6b;--m-kas:#64b5f6;--m-dam:#81c784;--m-suk:#ce93d8;--m-sha:#ffb74d;--m-mad:#4dd0e1}}
 .lines div.mc{border-inline-start:5px solid var(--lc);background:color-mix(in srgb,var(--lc) 10%,transparent)}
-.lines div.mc .lead-ar{color:var(--lc)}
+.lines div.mc .lead-ar{color:var(--ink)}
+.found .demo .ink{color:var(--ink)}
 .lines .mk{color:var(--lc);font-weight:700}
 .term:not([data-v])::after{content:"ⓘ";font-size:.7em;margin-inline-start:2px;color:var(--brand);vertical-align:super}
 @keyframes flipN{from{transform:perspective(900px) rotateY(-18deg) translateX(30px);opacity:.3}to{transform:none;opacity:1}}
@@ -252,6 +253,12 @@ html[dir=rtl] .flipN{animation-name:flipP}html[dir=rtl] .flipP{animation-name:fl
 .swipehint{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px;color:var(--muted);margin-top:18px}
 .arw{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);font-size:20px;font-weight:700;color:var(--brand);flex:none}
 .arw:disabled{opacity:.3}
+button.play{border:none;background:none;color:var(--brand);font:inherit;padding:0;cursor:pointer}
+button.chip.play{border:1px solid var(--line);background:var(--surface);color:inherit;padding:6px 14px}
+button.btn.play{background:var(--brand);color:#fff;padding:12px 22px}
+.play.on{color:var(--ok)!important}
+.ov{position:relative;display:inline-block}
+.ovt{position:absolute;inset:0;color:var(--ink);pointer-events:none}
 /* --- game --- */
 .gwrap{max-width:560px;margin:0 auto}
 .garden{font-size:34px;text-align:center;letter-spacing:4px;min-height:52px;margin:6px 0 10px}
@@ -296,13 +303,13 @@ html[dir=rtl] .flipN{animation-name:flipP}html[dir=rtl] .flipP{animation-name:fl
 const T = {
   en:{
     brand:"Itqaan", tagline:"Learn tajweed from zero · Ḥafṣ ʿan ʿĀṣim", switch:"عربي",
-    nav_home:"Home", nav_lessons:"Learn", nav_learn:"All rules", nav_practice:"Practice", nav_test:"Test", nav_review:"Review", nav_game:"Game 🎮", full_exp:"Full explanation", days_s:"days", g_title:"Tajweed Garden 🌱", g_lead:"A calm game. No timer, no losing. Every right answer grows your garden.", g_m1:"Name the rule", g_m1d:"See a word. Tap its rule.", g_m2:"Find the letter", g_m2d:"See a rule. Tap the right word.", g_q1:"Which rule is in the coloured part?", g_q2:"Which one has this rule?", g_hint:"💡 Hint", g_next:"Next 🌿", g_again:"Not quite 💛 Try another one.", g_done:"Your garden is full! 🌳", g_done2:"You grew {n} plants today.", g_play:"Play again", g_home:"Choose a game", g_round:"Round {a} of {b}", g_easy:"Easy (2 choices)", g_more:"A bit harder (3 choices)",
-    hero_title:"Recite with precision, one rule at a time.",
+    nav_home:"Home", nav_lessons:"Learn", nav_learn:"All rules", nav_practice:"Practice", nav_test:"Test", nav_review:"Review", nav_game:"Game 🎮", stop_audio:"Stop", t_game:"Tajweed Garden: a calm game. No timer, no losing.", full_exp:"Full explanation", days_s:"days", g_title:"Tajweed Garden 🌱", g_lead:"A calm game. No timer, no losing. Every right answer grows your garden.", g_m1:"Name the rule", g_m1d:"See a word. Tap its rule.", g_m2:"Find the letter", g_m2d:"See a rule. Tap the right word.", g_q1:"Which rule is in the coloured part?", g_q2:"Which one has this rule?", g_hint:"💡 Hint", g_next:"Next 🌿", g_again:"Not quite 💛 Try another one.", g_done:"Your garden is full! 🌳", g_done2:"You grew {n} plants today.", g_play:"Play again", g_home:"Choose a game", g_round:"Round {a} of {b}", g_easy:"Easy (2 choices)", g_more:"A bit harder (3 choices)",
+    hero_title:"Recite with precision,<br>one rule at a time.",
     hero_lead:"Tajweed means reading the Quran the right way. Learn one small thing at a time, in simple words. Then try a few easy questions.",
     start:"Start lesson 1", quick:"Browse the rules",
     t_learn:"A reference of the basic marks and all 21 rules with letters and Quranic examples.",
     t_practice:"Two quiz styles: name the rule, or find the example. Instant feedback.",
-    t_test:"Ten mixed questions, timed, with a full breakdown at the end.",
+    t_test:"Ten mixed questions. No rush. See every answer at the end.",
     t_review:"Every mistake is saved here until you get it right twice.",
     s_answered:"Questions answered", s_acc:"Accuracy", s_best:"Best test score", s_review:"Waiting for review",
     learn_title:"Learn the rules", learn_lead:"One short card per rule.",
@@ -311,7 +318,7 @@ const T = {
     q_which:"Which rule applies to the highlighted part?",
     correct:"Correct!", incorrect:"Almost! 💛", answer_is:"The answer is",
     next:"Next question", streak:"Streak", score:"Score",
-    test_title:"Test yourself", test_lead:"Ten questions drawn from all categories. No hints until the end.",
+    test_title:"Test yourself", test_lead:"Ten questions from the lessons you finished. Take your time. A hint is there if you need it.",
     test_start:"Start the test", q_of:"Question {a} of {b}", finish:"Finish", time:"Time",
     result:"Your result", retry:"Take another test", your_answer:"Your answer", right_answer:"Correct answer",
     review_title:"Review your mistakes", review_lead:"Questions you missed collect here. Answer each one correctly twice to clear it.",
@@ -331,20 +338,20 @@ const T = {
     learned_only:"Questions come only from lessons you've finished.",
     q_mark:"What is the mark on this letter called?",
     in_lesson:"In this lesson",
-    eli5:"Explain like I'm 5", nice:["Nice!","Great!","Yes!","Exactly!","Well done!"], tryagain:"Good try! Peek at the gold letter 💛", tryagain2:"Good try! Have another go 💛", stars:"stars", days:"days you learned", brk_t:"Nice work! 🌿", brk_l:"That was about 2 minutes. You can stop here, your place is saved.", brk_go:"Keep going", brk_stop:"Stop for now", resume:"Pick up where you left off", done_msg:"You did it! Every bit counts.", mins:"~{n} min", got_it:"Got it", more_ex:"More examples",
+    eli5:"Explain", nice:["Nice!","Great!","Yes!","Exactly!","Well done!"], tryagain:"Good try! Peek at the gold letter 💛", tryagain2:"Good try! Have another go 💛", stars:"stars", days:"days you learned", brk_t:"Nice work! 🌿", brk_l:"That was about 2 minutes. You can stop here, your place is saved.", brk_go:"Keep going", brk_stop:"Stop for now", resume:"Pick up where you left off", done_msg:"You did it! Every bit counts.", mins:"~{n} min", got_it:"Got it", more_ex:"More examples",
     do_:"Do", when_:"When", more:"More detail", tip:"💡 Tap a word with dots under it ⓘ to see what it means.", meaning:"Meaning", meaning_src:"English meaning: Saheeh International", close:"Close", tap_meaning:"Meaning",
     credits_link:"Credits →",
     footer:"Rules follow Ḥafṣ ʿan ʿĀṣim via ash-Shāṭibiyyah. Quran text (Uthmani) from Quran.com (Quran Foundation). English meanings (Saheeh International) via Tarteel. Audio: Sheikh Ibrahim Al-Akhdar, streamed from EveryAyah.com. Always check your recitation with a qualified teacher."
   },
   ar:{
     brand:"إتقان", tagline:"تعلّم التجويد من الصفر · رواية حفص عن عاصم", switch:"English",
-    nav_home:"الرئيسية", nav_lessons:"تعلّم", nav_learn:"كل الأحكام", nav_practice:"تدرّب", nav_test:"اختبر نفسك", nav_review:"راجع", nav_game:"لعبة 🎮", full_exp:"الشرح الكامل", days_s:"أيام", g_title:"حديقة التجويد 🌱", g_lead:"لعبة هادئة: بلا وقت وبلا خسارة. كل إجابة صحيحة تُنبت زرعة في حديقتك.", g_m1:"ما الحكم؟", g_m1d:"ترى كلمة، فتختار حكمها.", g_m2:"ابحث عن الكلمة", g_m2d:"ترى حكمًا، فتختار الكلمة التي فيها.", g_q1:"ما الحكم في الجزء الملوّن؟", g_q2:"أيّها فيه هذا الحكم؟", g_hint:"💡 تلميح", g_next:"التالي 🌿", g_again:"ليس تمامًا 💛 جرّب خيارًا آخر.", g_done:"امتلأت حديقتك! 🌳", g_done2:"زرعت اليوم {n} نبتة.", g_play:"العب مرة أخرى", g_home:"اختر لعبة", g_round:"الجولة {a} من {b}", g_easy:"سهل (خياران)", g_more:"أصعب قليلًا (٣ خيارات)",
-    hero_title:"اقرأ بإتقان، حكمًا بعد حكم.",
+    nav_home:"الرئيسية", nav_lessons:"تعلّم", nav_learn:"كل الأحكام", nav_practice:"تدرّب", nav_test:"اختبر نفسك", nav_review:"راجع", nav_game:"لعبة 🎮", stop_audio:"إيقاف", t_game:"حديقة التجويد: لعبة هادئة بلا وقت وبلا خسارة.", full_exp:"الشرح الكامل", days_s:"أيام", g_title:"حديقة التجويد 🌱", g_lead:"لعبة هادئة: بلا وقت وبلا خسارة. كل إجابة صحيحة تُنبت زرعة في حديقتك.", g_m1:"ما الحكم؟", g_m1d:"ترى كلمة، فتختار حكمها.", g_m2:"ابحث عن الكلمة", g_m2d:"ترى حكمًا، فتختار الكلمة التي فيها.", g_q1:"ما الحكم في الجزء الملوّن؟", g_q2:"أيّها فيه هذا الحكم؟", g_hint:"💡 تلميح", g_next:"التالي 🌿", g_again:"ليس تمامًا 💛 جرّب خيارًا آخر.", g_done:"امتلأت حديقتك! 🌳", g_done2:"زرعت اليوم {n} نبتة.", g_play:"العب مرة أخرى", g_home:"اختر لعبة", g_round:"الجولة {a} من {b}", g_easy:"سهل (خياران)", g_more:"أصعب قليلًا (٣ خيارات)",
+    hero_title:"اقرأ بإتقان،<br>حكمًا بعد حكم.",
     hero_lead:"التجويد يعني قراءة القرآن بالطريقة الصحيحة. تعلّم شيئًا صغيرًا في كل مرة بكلمات بسيطة، ثم جرّب أسئلة سهلة.",
     start:"ابدأ الدرس الأول", quick:"تصفّح الأحكام",
     t_learn:"مرجع للحركات والعلامات وكل الأحكام الـ ٢١ مع حروفها وأمثلة من القرآن.",
     t_practice:"نوعان من الأسئلة: سمِّ الحكم، أو اعثر على المثال. مع تصحيح فوري.",
-    t_test:"عشرة أسئلة متنوعة بتوقيت، مع تفصيل كامل في النهاية.",
+    t_test:"عشرة أسئلة متنوعة بلا وقت، وترى كل الإجابات في النهاية.",
     t_review:"كل خطأ يُحفظ هنا حتى تجيب عنه صحيحًا مرتين.",
     s_answered:"أسئلة مُجابة", s_acc:"نسبة الإصابة", s_best:"أفضل نتيجة اختبار", s_review:"بانتظار المراجعة",
     learn_title:"تعلّم الأحكام", learn_lead:"بطاقة قصيرة لكل حكم.",
@@ -353,7 +360,7 @@ const T = {
     q_which:"ما الحكم في الجزء المظلل؟",
     correct:"أحسنت!", incorrect:"قريب! 💛", answer_is:"الإجابة الصحيحة",
     next:"السؤال التالي", streak:"متتالية", score:"النتيجة",
-    test_title:"اختبر نفسك", test_lead:"عشرة أسئلة من جميع الأبواب، ولا تلميحات حتى النهاية.",
+    test_title:"اختبر نفسك", test_lead:"عشرة أسئلة من الدروس التي أنهيتها. خذ وقتك، والتلميح موجود إن احتجته.",
     test_start:"ابدأ الاختبار", q_of:"السؤال {a} من {b}", finish:"إنهاء", time:"الوقت",
     result:"نتيجتك", retry:"اختبار جديد", your_answer:"إجابتك", right_answer:"الإجابة الصحيحة",
     review_title:"راجع أخطاءك", review_lead:"تُجمع هنا الأسئلة التي أخطأت فيها. أجب عن كل سؤال صحيحًا مرتين ليُحذف.",
@@ -373,7 +380,7 @@ const T = {
     learned_only:"الأسئلة من الدروس التي أتممتها فقط.",
     q_mark:"ما اسم العلامة على هذا الحرف؟",
     in_lesson:"في هذا الدرس",
-    eli5:"اشرح لي ببساطة", nice:["أحسنت!","رائع!","نعم!","بالضبط!","ممتاز!"], tryagain:"محاولة جيدة! انظر إلى الحرف الذهبي 💛", tryagain2:"محاولة جيدة! جرّب مرة أخرى 💛", stars:"نجمة", days:"أيام تعلّمت فيها", brk_t:"عمل رائع! 🌿", brk_l:"هذه دقيقتان تقريبًا. يمكنك التوقف هنا، وسيُحفظ مكانك.", brk_go:"تابِع", brk_stop:"توقّف الآن", resume:"تابِع من حيث توقفت", done_msg:"أحسنت! كل خطوة تُحسب.", mins:"~{n} دقائق", got_it:"فهمت", more_ex:"أمثلة أكثر",
+    eli5:"اشرح", nice:["أحسنت!","رائع!","نعم!","بالضبط!","ممتاز!"], tryagain:"محاولة جيدة! انظر إلى الحرف الذهبي 💛", tryagain2:"محاولة جيدة! جرّب مرة أخرى 💛", stars:"نجمة", days:"أيام تعلّمت فيها", brk_t:"عمل رائع! 🌿", brk_l:"هذه دقيقتان تقريبًا. يمكنك التوقف هنا، وسيُحفظ مكانك.", brk_go:"تابِع", brk_stop:"توقّف الآن", resume:"تابِع من حيث توقفت", done_msg:"أحسنت! كل خطوة تُحسب.", mins:"~{n} دقائق", got_it:"فهمت", more_ex:"أمثلة أكثر",
     do_:"ماذا تفعل", when_:"متى", more:"تفاصيل أكثر", tip:"💡 اضغط على الكلمة التي تحتها نقاط ⓘ لترى معناها.", meaning:"المعنى", meaning_src:"المعنى بالإنجليزية: ترجمة صحيح إنترناشيونال", close:"إغلاق", tap_meaning:"المعنى",
     credits_link:"المصادر ←",
     footer:"الأحكام برواية حفص عن عاصم من طريق الشاطبية. نص القرآن بالرسم العثماني من Quran.com (مؤسسة Quran Foundation)، والمعاني الإنجليزية (صحيح إنترناشيونال) عبر ترتيل. التلاوة بصوت الشيخ إبراهيم الأخضر من موقع EveryAyah.com. اعرض تلاوتك دائمًا على معلّم متقن."
@@ -703,7 +710,7 @@ const audioURL=key=>{const [s,a]=key.split(":");return `https://everyayah.com/da
 function refHTML(key){
   const [s,a]=key.split(":");
   const name=SURAH[s][lang==="ar"?0:1];
-  return `<div class="ref"><span>${esc(name)} · ${num(s)}:${num(a)}</span><button class="term" data-v="${key}" style="border:none;color:var(--brand)">📖 ${t("tap_meaning")}</button><a href="${audioURL(key)}" target="_blank" rel="noopener">🔊 ${t("listen")}</a></div>`;
+  return `<div class="ref"><span>${esc(name)} · ${num(s)}:${num(a)}</span><button class="term" data-v="${key}" style="border:none;color:var(--brand)">📖 ${t("tap_meaning")}</button><button class="play" data-play="${key}">🔊 ${t("listen")}</button></div>`;
 }
 function makeFind(q,allowed){
   const pool=shuffle(QS.filter(o=>(!allowed||allowed.has(o.rule))&&o.rule!==q.rule&&!o.also.includes(q.rule)&&!q.also.includes(o.rule)&&o.hl!==q.hl));
@@ -738,8 +745,13 @@ function markColor(w){
   if(/ّ/.test(w))return "var(--m-sha)";if(/ْ/.test(w))return "var(--m-suk)";
   if(/[اوي]/.test(w.replace(/^[أإ]/,""))&&/[َُِ][اوي]/.test(w))return "var(--m-mad)";
   if(/َ/.test(w))return "var(--m-fat)";if(/ِ/.test(w))return "var(--m-kas)";if(/ُ/.test(w))return "var(--m-dam)";return ""}
-const demoHTML=d=>String(d).split(/\s+/).map(w=>{const c=markColor(w);return c?`<span style="color:${c}">${esc(w)}</span>`:esc(w)}).join(" ");
-const lines=h=>{const p=String(h).split(/\s+·\s+/);return p.length>1&&/[=←]/.test(h)?`<div class="lines">${p.map(x=>{const m=x.match(/^([\u0600-\u06FF\u0750-\u077F]+)\s+(.*)$/);if(!m)return `<div>${gl(x)}</div>`;const c=markColor(m[1]);const k=m[2].indexOf("=");const a=k>0?m[2].slice(0,k):"",b=k>0?m[2].slice(k):m[2];return `<div style="${c?`--lc:${c}`:""}" class="${c?"mc":""}"><span class="lead-ar" dir="rtl">${esc(m[1])}</span><span class="lt">${a?`<b class="mk">${gl(a)}</b>`:""}${gl(b)}</span></div>`}).join("")}</div>`:gl(h)};
+const MK=/[ً-ْ]/;
+function markOnly(w){const c=markColor(w);if(!c)return esc(w);
+  if(c==="var(--m-mad)")return [...w].map((ch,i)=>(/[اوي]/.test(ch)&&i>0)?`<span style="color:${c}">${esc(ch)}</span>`:esc(ch)).join("");
+  const base=w.replace(/[ً-ْ]/g,"");
+  return `<span class="ov" dir="rtl"><span style="color:${c}">${esc(w)}</span><span class="ovt" aria-hidden="true">${esc(base)}</span></span>`}
+const demoHTML=d=>String(d).split(/\s+/).map(w=>/[؀-ۿ]/.test(w)?`<span class="ink">${markOnly(w)}</span>`:esc(w)).join(" ");
+const lines=h=>{const p=String(h).split(/\s+·\s+/);return p.length>1&&/[=←]/.test(h)?`<div class="lines">${p.map(x=>{const m=x.match(/^([\u0600-\u06FF\u0750-\u077F]+)\s+(.*)$/);if(!m)return `<div>${gl(x)}</div>`;const c=markColor(m[1]);const k=m[2].indexOf("=");const a=k>0?m[2].slice(0,k):"",b=k>0?m[2].slice(k):m[2];return `<div style="${c?`--lc:${c}`:""}" class="${c?"mc":""}"><span class="lead-ar" dir="rtl">${markOnly(m[1])}</span><span class="lt">${a?`<b class="mk">${gl(a)}</b>`:""}${gl(b)}</span></div>`}).join("")}</div>`:gl(h)};
 /* ---------- Pictures (original SVG / HTML drawings made for Itqaan) ---------- */
 const PIC={
  mouth(){const A=lang==="ar";
@@ -839,7 +851,7 @@ let current="home";
 
 function home(){
   const acc=stats.answered?Math.round(stats.correct/stats.answered*100)+"%":"–";
-  const tiles=[["lessons","🌱"],["learn","📖"],["practice","🎯"],["test","⏱"],["review","🔁"]];
+  const tiles=[["lessons","🌱"],["learn","📖"],["practice","🎯"],["test","📝"],["review","🔁"],["game","🎮"]];
   app.innerHTML=`
   <section class="hero">
     <div><h1>${t("hero_title")}</h1><p class="lead">${t("hero_lead")}</p>
@@ -873,10 +885,11 @@ function ruleCard(r,c){
     <h3>${esc(rname(r))}</h3>
     <div class="big1">👉 ${gl(EASY[r.id][A?2:0])}</div>
     <div class="when1">🔎 ${gl(EASY[r.id][A?3:1])}</div>
+    ${VIS[r.id]?formulaHTML(r):""}
     <div class="letters">${L.map(x=>`<span>${esc(x)}</span>`).join("")}</div>
     <div class="ex">${ayahHTML(e[0],e[1],c.color)}${refHTML(e[0])}</div>
     <div class="row" style="justify-content:flex-start;margin-top:10px">
-      <button class="chip" data-kid="${r.id}">🧸 ${t("eli5")}</button>
+      <button class="chip" data-kid="${r.id}">💬 ${t("eli5")}</button>
       ${r.ex.length>1?`<button class="chip" data-moreex="${r.id}">➕ ${t("more_ex")}</button>`:""}
     </div>
     <details class="more"><summary>📖 ${t("full_exp")}</summary><p>${gl(A?r.dar:r.den)}</p></details>
@@ -1081,7 +1094,7 @@ function lessonRun(){setTimeout(()=>{const c=app.querySelector(".card");if(c){c.
         <h2 style="color:var(--c)">${esc(lang==="ar"?x.tar:x.ten)}</h2><div style="font-size:19px;font-weight:500;margin:6px auto 4px;max-width:520px">${lines(lang==="ar"?x.ar:x.en)}</div>${x.ref?`<div style="display:flex;justify-content:center;margin-top:8px">${refHTML(x.ref)}</div>`:""}${x.more?`<details class="more" style="text-align:start"><summary>📖 ${t("full_exp")}</summary><p>${gl(x.more[lang==="ar"?1:0])}</p></details>`:""}</article>`;}
     else if(st.kind==="see"){const r=st.r,e=r.ex[VIS[r.id].t[0]];
       body=`<article class="card pad" style="--c:${CMAP[id].color}"><div class="rulelabel">${esc(rname(r))}</div>${bigWord(r,"see")}${formulaHTML(r)}
-      <div class="row" style="justify-content:center;margin-top:0"><button class="chip" data-kid="${r.id}">🧸 ${t("eli5")}</button><button class="chip" data-v="${e[0]}">📖 ${t("tap_meaning")}</button><a class="chip" style="text-decoration:none;color:inherit" href="${audioURL(e[0])}" target="_blank" rel="noopener">🔊 ${t("listen")}</a></div><details class="more"><summary>📖 ${t("full_exp")}</summary><p>${gl(lang==="ar"?r.dar:r.den)}</p></details></article>`;}
+      <div class="row" style="justify-content:center;margin-top:0"><button class="chip" data-kid="${r.id}">💬 ${t("eli5")}</button><button class="chip" data-v="${e[0]}">📖 ${t("tap_meaning")}</button><button class="chip play" data-play="${e[0]}">🔊 ${t("listen")}</button></div><details class="more"><summary>📖 ${t("full_exp")}</summary><p>${gl(lang==="ar"?r.dar:r.den)}</p></details></article>`;}
     else if(st.kind==="tap"){const r=st.r;
       body=`<article class="card pad" style="--c:${CMAP[id].color}"><div class="rulelabel">${esc(rname(r))}</div><div class="prompt">👆 ${gl(tapQ(r))}</div>${bigWord(r,"tap",st.st)}
       <div class="win" style="${st.st.good?"":"color:var(--bad)"}">${st.st.msg||""}</div>${st.st.good?formulaHTML(r):""}</article>`;}
@@ -1179,16 +1192,28 @@ document.addEventListener("click",e=>{
   if(g){e.preventDefault();e.stopPropagation();const x=GLOSS.find(z=>z.id===g.dataset.g);
     openPop(`<h3>${esc(lang==="ar"?x.ar:x.en)}</h3><div class="simple">${bidi(esc(lang==="ar"?x.sar:x.sen))}</div>`);return}
   const k=e.target.closest("[data-kid]");
-  if(k){const r=RMAP[k.dataset.kid];openPop(`<h3>🧸 ${esc(rname(r))}</h3><div class="simple">${gl(KID[r.id][lang==="ar"?1:0])}</div>`);return}
+  if(k){const r=RMAP[k.dataset.kid];openPop(`<h3>💬 ${esc(rname(r))}</h3><div class="simple">${gl(KID[r.id][lang==="ar"?1:0])}</div>`);return}
   const mx=e.target.closest("[data-moreex]");
   if(mx){const r=RMAP[mx.dataset.moreex],c=CMAP[r.cat];openPop(`<h3>${esc(rname(r))}</h3>`+r.ex.slice(1).map(e=>`<div class="ex">${ayahHTML(e[0],e[1],c.color)}${refHTML(e[0])}<div class="note">${gl(lang==="ar"?e[3]:e[2])}</div></div>`).join(""));return}
   const v=e.target.closest("[data-v],.ayah[data-key]");
   if(v&&!e.target.closest(".opt")){const key=v.dataset.v||v.dataset.key;const [s,a]=key.split(":");
     const hl=v.dataset.hl||"";
     openPop(`<h3>${t("meaning")} · ${esc(SURAH[s][lang==="ar"?0:1])} ${num(s)}:${num(a)}</h3>${ayahHTML(key,hl,"var(--gold)").replace('data-key','data-x')}
-      <div class="simple" dir="ltr" style="text-align:left;margin-top:8px">${esc(TRANS[key]||"")}</div><div class="note" style="margin-top:10px">${t("meaning_src")}</div>`);}
+      <div class="simple" dir="ltr" style="text-align:left;margin-top:8px">${esc(TRANS[key]||"")}</div><div class="row" style="justify-content:center;margin-top:14px"><button class="btn play" data-play="${key}">🔊 ${t("listen")}</button></div><div class="note" style="margin-top:10px">${t("meaning_src")}</div>`);playBtns();}
 },true);
 
+/* ---------- Audio: tap 🔊 to hear the verse (Sheikh Ibrahim Al-Akhdar, EveryAyah) ---------- */
+let AU=null,AUkey=null;
+function playBtns(){document.querySelectorAll("[data-play]").forEach(b=>{const on=AU&&!AU.paused&&b.dataset.play===AUkey;b.classList.toggle("on",on);b.innerHTML=(on?"⏸ ":"🔊 ")+t(on?"stop_audio":"listen")})}
+function play(key){
+  if(AU&&AUkey===key&&!AU.paused){AU.pause();playBtns();return}
+  if(AU)AU.pause();
+  const urls=[audioURL(key),audioURL(key).replace("_32kbps","_64kbps")];let i=0;
+  AU=new Audio();AUkey=key;AU.preload="auto";
+  const tryNext=()=>{if(i>=urls.length){window.open(urls[0],"_blank");return}AU.src=urls[i++];const pr=AU.play();if(pr&&pr.catch)pr.catch(err=>{if(err&&err.name==="NotAllowedError"){window.open(urls[0],"_blank")}})};
+  AU.onerror=tryNext;AU.onplay=AU.onpause=AU.onended=playBtns;tryNext();playBtns();
+}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-play]");if(b){e.preventDefault();e.stopPropagation();play(b.dataset.play)}},true);
 /* ---------- Shell ---------- */
 function applyLang(){
   const h=document.documentElement; h.lang=lang; h.dir=lang==="ar"?"rtl":"ltr";

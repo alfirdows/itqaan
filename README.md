@@ -14,7 +14,7 @@ A calm, ADHD-friendly way to learn Quran tajweed (Ḥafṣ ʿan ʿĀṣim) from 
   5. 🏆 Mastery exam
 - **One idea per screen:** a big word with colored letters, a picture of the rule, then a "tap the letter" challenge.
 - **No pressure:** a 🌿 break every ~2 minutes, your place is saved, kind feedback, stars, and a days-learned count that never resets.
-- **Tap to explain:** tap underlined terms for a simple explanation, tap a verse for its meaning, or tap "Explain like I'm 5".
+- **Tap to explain:** tap a word with dots under it (ⓘ) for a simple explanation, tap a verse for its meaning, tap 🔊 to hear it, or tap 💬 Explain.
 - **Full explanation** behind a tap on every rule, so nothing is cut.
 - **Game:** Tajweed Garden 🌱, a calm game with no timer and no losing. Name the rule, or find the word.
 - **Practice, Test, Review:** questions only come from lessons you've finished, and mistakes come back until you get them right twice.
