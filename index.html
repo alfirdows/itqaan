@@ -244,6 +244,14 @@ html[dir=rtl] .ladder{flex-direction:row-reverse}
 .lines div.mc .lead-ar{color:var(--lc)}
 .lines .mk{color:var(--lc);font-weight:700}
 .term:not([data-v])::after{content:"ⓘ";font-size:.7em;margin-inline-start:2px;color:var(--brand);vertical-align:super}
+@keyframes flipN{from{transform:perspective(900px) rotateY(-18deg) translateX(30px);opacity:.3}to{transform:none;opacity:1}}
+@keyframes flipP{from{transform:perspective(900px) rotateY(18deg) translateX(-30px);opacity:.3}to{transform:none;opacity:1}}
+html[dir=rtl] .flipN{animation-name:flipP}html[dir=rtl] .flipP{animation-name:flipN}
+.flipN,.flipP{animation:flipN .35s ease-out;transform-origin:center}
+.flipP{animation-name:flipP}
+.swipehint{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px;color:var(--muted);margin-top:18px}
+.arw{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);font-size:20px;font-weight:700;color:var(--brand);flex:none}
+.arw:disabled{opacity:.3}
 /* --- game --- */
 .gwrap{max-width:560px;margin:0 auto}
 .garden{font-size:34px;text-align:center;letter-spacing:4px;min-height:52px;margin:6px 0 10px}
@@ -754,7 +762,7 @@ const PIC={
   return `<div class="counts">${R.map(r=>`<div><span class="beads">${"●".repeat(r[0])}</span><b>${num(r[0])}</b><span>${esc(r[1])}</span></div>`).join("")}</div>`}
 };
 /* ---------- Game: Tajweed Garden (calm, no timer, no losing) ---------- */
-let GM=null;
+let GM=null;let flipDir=1;
 const PLANTS=["🌱","🌿","🍀","🌷","🌼","🌻","🌸","🌹","🌺","🌳"];
 function gamePool(){const L=new Set(learnedRules());let pool=QS.filter(q=>L.has(q.rule));if(pool.length<8)pool=QS.slice();if(GM_mode===2)pool=pool.filter(q=>!NOFIND.has(q.rule));return pool}
 let GM_mode=1;
@@ -1048,7 +1056,8 @@ function startLesson(id){
   LS={id,steps:withBreaks,step:0,quiz,qi:-1,score:0};
   lessonRun();
 }
-function lessonRun(){
+function swipeBar(){return `<div class="swipehint"><button class="arw" data-arw="prev" aria-label="Back" ${LS.step>0?"":"disabled"}>${lang==="ar"?"→":"←"}</button><span>${lang==="ar"?"اسحب لتقليب الصفحة كالكتاب":"Swipe to turn the page, like a book"}</span><button class="arw" data-arw="next" aria-label="Next">${lang==="ar"?"←":"→"}</button></div>`}
+function lessonRun(){setTimeout(()=>{const c=app.querySelector(".card");if(c){c.classList.remove("flipN","flipP");void c.offsetWidth;c.classList.add(flipDir>0?"flipN":"flipP")}flipDir=1},0);
   store.set("resume",LS.qi===-2?null:{id:LS.id,step:LS.step});
   const id=LS.id,c=lColor(id),total=LS.steps.length+LS.quiz.length;
   const pos=LS.qi<0?LS.step:LS.steps.length+LS.qi;
@@ -1077,6 +1086,7 @@ function lessonRun(){
       body=`<article class="card pad" style="--c:${CMAP[id].color}"><div class="rulelabel">${esc(rname(r))}</div><div class="prompt">👆 ${gl(tapQ(r))}</div>${bigWord(r,"tap",st.st)}
       <div class="win" style="${st.st.good?"":"color:var(--bad)"}">${st.st.msg||""}</div>${st.st.good?formulaHTML(r):""}</article>`;}
     const last=LS.step===LS.steps.length-1;
+    
     const locked=st.kind==="tap"&&!st.st.good;
     nav=st.kind==="break"?`<div class="row" style="justify-content:center"><a class="btn ghost" href="#home" id="lstop" style="text-decoration:none">${t("brk_stop")}</a><button class="btn" id="lnx">${t("brk_go")}</button></div>`:`<div class="row">${LS.step>0?`<button class="btn ghost" id="lprev">${t("back")}</button>`:""}${locked?"":`<button class="btn" id="lnx">${last?t("to_quiz"):(st.kind==="see"?t("got_it")+(lang==="ar"?" ←":" →"):t("continue_"))}</button>`}</div>`;
   } else {
@@ -1095,7 +1105,8 @@ function lessonRun(){
     } else body=questionBlock(item.B,{showFeedback:true,picked:item.picked,topHTML:head});
     nav=item.picked!=null?`<div class="row"><button class="btn" id="lnx">${t("next")}</button></div>`:"";
   }
-  app.innerHTML=top+body+nav;
+  app.innerHTML=top+body+nav+(LS.qi===-1&&LS.steps[LS.step]&&LS.steps[LS.step].kind!=="break"?swipeBar():"");
+  app.querySelectorAll("[data-arw]").forEach(x=>x.onclick=()=>{const b=document.getElementById(x.dataset.arw==="next"?"lnx":"lprev");if(b&&!b.disabled){if(x.dataset.arw==="prev")flipDir=-1;b.click()}});
   const g=x=>document.getElementById(x);
   if(g("lback"))g("lback").onclick=()=>{LS=null};
   if(g("lstop"))g("lstop").onclick=()=>{LS.step++;store.set("resume",{id:LS.id,step:LS.step});LS=null};
@@ -1193,6 +1204,16 @@ function route(){closePop();if((location.hash||"").slice(1)==="game")GM=null;
 }
 document.getElementById("langBtn").onclick=()=>{lang=lang==="ar"?"en":"ar";store.set("lang",lang);applyLang();renderPill();views[current]()};
 window.addEventListener("hashchange",route);
+
+document.addEventListener("click",e=>{if(e.target.closest&&e.target.closest("#lprev"))flipDir=-1},true);
+/* Swipe like a book in lessons: next page = swipe toward the reading direction */
+(()=>{let x0=null,y0=null,t0=0;
+ app.addEventListener("touchstart",e=>{if(!LS||!document.getElementById("lnx")&&!document.getElementById("lprev"))return;const t=e.touches[0];x0=t.clientX;y0=t.clientY;t0=Date.now()},{passive:true});
+ app.addEventListener("touchend",e=>{if(x0==null)return;const t=e.changedTouches[0],dx=t.clientX-x0,dy=t.clientY-y0;x0=null;
+  if(Math.abs(dx)<60||Math.abs(dx)<Math.abs(dy)*1.5||Date.now()-t0>800)return;
+  const rtl=document.documentElement.dir==="rtl";const next=rtl?dx>0:dx<0;
+  const b=document.getElementById(next?"lnx":"lprev");if(b&&!b.disabled){flipDir=next?1:-1;b.click()}},{passive:true});
+})();
 new MutationObserver(()=>{const has=!!app.querySelector(".term:not([data-v])");app.querySelectorAll(".tip").forEach(t=>t.hidden=!has)}).observe(app,{childList:true,subtree:true});
 applyLang(); renderPill(); route();
 </script>
