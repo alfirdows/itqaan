@@ -22,6 +22,7 @@ A calm, ADHD-friendly way to learn Quran tajweed (Ḥafṣ ʿan ʿĀṣim) from 
 
 See the Credits page inside the site.
 
+- Quran text (Uthmani, Ḥafṣ): [Quran.com](https://quran.com) by the [Quran Foundation](https://quran.foundation), via the Quran.com API
 - Recitation: Sheikh Ibrahim Al-Akhdar, streamed from [EveryAyah.com](https://everyayah.com) (links only, no audio files are copied)
 - English meanings: Saheeh International
 - Fonts: Amiri Quran, IBM Plex Sans Arabic, Inter (Google Fonts, SIL Open Font License)
