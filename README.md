@@ -1,13 +1,13 @@
 # Itqaan · إتقان
 
-A calm, ADHD-friendly way to learn Quran tajweed (Ḥafṣ ʿan ʿĀṣim) from zero to mastery, in Arabic or English.
+A calm, ADHD-friendly way to learn Quran tajweed (Ḥafṣ ʿan ʿĀṣim) step by step to mastery, in Arabic or English.
 
 **Open the site:** open `index.html` in any browser. It is one self-contained file with no build step.
 
 ## What's inside
 
 - **Learn:** 5 levels and 24 short lessons, about 3 minutes each.
-  1. 🌱 Start from zero: letters, vowel marks, what tajweed is, Istiʿādhah & Basmalah, hamzat al-waṣl
+  1. 🌱 The basics: letters, vowel marks, what tajweed is, Istiʿādhah & Basmalah, hamzat al-waṣl
   2. 🌿 Core rules: noon sākinah & tanwīn, meem sākinah, ghunnah & qalqalah, lām rules, madd, more kinds of madd
   3. 🌳 How letters sound: makhārij (with a mouth picture), ṣifāt, tafkhīm & tarqīq, the letter rāʾ, levels of ghunnah
   4. ⛰️ Advanced: mithlayn / mutajānisayn / mutaqāribayn, two sukūns meeting, hāʾ aḍ-ḍamīr, letters written but not read, opening letters (الٓمٓ), waqf & ibtidāʾ (with the 4 saktāt), special Ḥafṣ words
