@@ -243,6 +243,7 @@ html[dir=rtl] .ladder{flex-direction:row-reverse}
 .lines div.mc{border-inline-start:5px solid var(--lc);background:color-mix(in srgb,var(--lc) 10%,transparent)}
 .lines div.mc .lead-ar{color:var(--lc)}
 .lines .mk{color:var(--lc);font-weight:700}
+.term:not([data-v])::after{content:"ⓘ";font-size:.7em;margin-inline-start:2px;color:var(--brand);vertical-align:super}
 /* --- game --- */
 .gwrap{max-width:560px;margin:0 auto}
 .garden{font-size:34px;text-align:center;letter-spacing:4px;min-height:52px;margin:6px 0 10px}
@@ -323,7 +324,7 @@ const T = {
     q_mark:"What is the mark on this letter called?",
     in_lesson:"In this lesson",
     eli5:"Explain like I'm 5", nice:["Nice!","Great!","Yes!","Exactly!","Well done!"], tryagain:"Good try! Peek at the gold letter 💛", tryagain2:"Good try! Have another go 💛", stars:"stars", days:"days you learned", brk_t:"Nice work! 🌿", brk_l:"That was about 2 minutes. You can stop here, your place is saved.", brk_go:"Keep going", brk_stop:"Stop for now", resume:"Pick up where you left off", done_msg:"You did it! Every bit counts.", mins:"~{n} min", got_it:"Got it", more_ex:"More examples",
-    do_:"Do", when_:"When", more:"More detail", tip:"Tap an underlined word to explain it. Tap a verse for its meaning.", meaning:"Meaning", meaning_src:"English meaning: Saheeh International", close:"Close", tap_meaning:"Meaning",
+    do_:"Do", when_:"When", more:"More detail", tip:"💡 Tap a word with dots under it ⓘ to see what it means.", meaning:"Meaning", meaning_src:"English meaning: Saheeh International", close:"Close", tap_meaning:"Meaning",
     credits_link:"Credits →",
     footer:"Rules follow Ḥafṣ ʿan ʿĀṣim via ash-Shāṭibiyyah. Quran text (Uthmani) from Quran.com (Quran Foundation). English meanings (Saheeh International) via Tarteel. Audio: Sheikh Ibrahim Al-Akhdar, streamed from EveryAyah.com. Always check your recitation with a qualified teacher."
   },
@@ -365,7 +366,7 @@ const T = {
     q_mark:"ما اسم العلامة على هذا الحرف؟",
     in_lesson:"في هذا الدرس",
     eli5:"اشرح لي ببساطة", nice:["أحسنت!","رائع!","نعم!","بالضبط!","ممتاز!"], tryagain:"محاولة جيدة! انظر إلى الحرف الذهبي 💛", tryagain2:"محاولة جيدة! جرّب مرة أخرى 💛", stars:"نجمة", days:"أيام تعلّمت فيها", brk_t:"عمل رائع! 🌿", brk_l:"هذه دقيقتان تقريبًا. يمكنك التوقف هنا، وسيُحفظ مكانك.", brk_go:"تابِع", brk_stop:"توقّف الآن", resume:"تابِع من حيث توقفت", done_msg:"أحسنت! كل خطوة تُحسب.", mins:"~{n} دقائق", got_it:"فهمت", more_ex:"أمثلة أكثر",
-    do_:"ماذا تفعل", when_:"متى", more:"تفاصيل أكثر", tip:"اضغط على الكلمة المسطّرة لشرحها، وعلى الآية لمعناها.", meaning:"المعنى", meaning_src:"المعنى بالإنجليزية: ترجمة صحيح إنترناشيونال", close:"إغلاق", tap_meaning:"المعنى",
+    do_:"ماذا تفعل", when_:"متى", more:"تفاصيل أكثر", tip:"💡 اضغط على الكلمة التي تحتها نقاط ⓘ لترى معناها.", meaning:"المعنى", meaning_src:"المعنى بالإنجليزية: ترجمة صحيح إنترناشيونال", close:"إغلاق", tap_meaning:"المعنى",
     credits_link:"المصادر ←",
     footer:"الأحكام برواية حفص عن عاصم من طريق الشاطبية. نص القرآن بالرسم العثماني من Quran.com (مؤسسة Quran Foundation)، والمعاني الإنجليزية (صحيح إنترناشيونال) عبر ترتيل. التلاوة بصوت الشيخ إبراهيم الأخضر من موقع EveryAyah.com. اعرض تلاوتك دائمًا على معلّم متقن."
   }
@@ -1192,6 +1193,7 @@ function route(){closePop();if((location.hash||"").slice(1)==="game")GM=null;
 }
 document.getElementById("langBtn").onclick=()=>{lang=lang==="ar"?"en":"ar";store.set("lang",lang);applyLang();renderPill();views[current]()};
 window.addEventListener("hashchange",route);
+new MutationObserver(()=>{const has=!!app.querySelector(".term:not([data-v])");app.querySelectorAll(".tip").forEach(t=>t.hidden=!has)}).observe(app,{childList:true,subtree:true});
 applyLang(); renderPill(); route();
 </script>
 </body>
