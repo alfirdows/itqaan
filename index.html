@@ -235,8 +235,14 @@ html[dir=rtl] .ladder{flex-direction:row-reverse}
 .lrow1 .lx{display:flex;flex-direction:column;font-size:18px;line-height:1.4}
 .lrow1 .lx b{font-size:22px}
 .lines{display:grid;gap:8px;max-width:520px;margin:8px auto 4px;text-align:start}
-.lines .lead-ar{font-family:"Amiri Quran",serif;font-size:30px;line-height:1.5;color:var(--c,var(--gold));margin-inline-end:12px;vertical-align:middle;display:inline-block;min-width:40px;text-align:center}
-.lines div{padding:8px 14px;border-radius:12px;background:color-mix(in srgb,var(--c,var(--gold)) 9%,transparent)}
+.lines .lead-ar{font-family:"Amiri Quran",serif;font-size:30px;line-height:1.5;color:var(--c,var(--gold));flex:none;padding:0 4px;min-width:44px;text-align:center}
+.lines div{display:flex;align-items:center;gap:14px;padding:8px 14px;border-radius:12px;background:color-mix(in srgb,var(--c,var(--gold)) 9%,transparent)}
+
+:root{--m-fat:#d32f2f;--m-kas:#1565c0;--m-dam:#2e7d32;--m-suk:#7b1fa2;--m-sha:#e65100;--m-mad:#00838f}
+@media (prefers-color-scheme:dark){:root{--m-fat:#ff6b6b;--m-kas:#64b5f6;--m-dam:#81c784;--m-suk:#ce93d8;--m-sha:#ffb74d;--m-mad:#4dd0e1}}
+.lines div.mc{border-inline-start:5px solid var(--lc);background:color-mix(in srgb,var(--lc) 10%,transparent)}
+.lines div.mc .lead-ar{color:var(--lc)}
+.lines .mk{color:var(--lc);font-weight:700}
 /* --- game --- */
 .gwrap{max-width:560px;margin:0 auto}
 .garden{font-size:34px;text-align:center;letter-spacing:4px;min-height:52px;margin:6px 0 10px}
@@ -716,7 +722,15 @@ function makeOptions(q,allowed){
 const app=document.getElementById("app");
 
 
-const lines=h=>{const p=String(h).split(/\s+·\s+/);return p.length>1&&/[=←]/.test(h)?`<div class="lines">${p.map(x=>{const m=x.match(/^([\u0600-\u06FF\u0750-\u077F]+)\s+(.*)$/);return m?`<div><span class="lead-ar" dir="rtl">${esc(m[1])}</span>${gl(m[2])}</div>`:`<div>${gl(x)}</div>`}).join("")}</div>`:gl(h)};
+
+/* One colour per mark, used the same way everywhere */
+function markColor(w){
+  if(/[ً]/.test(w))return "var(--m-fat)";if(/[ٍ]/.test(w))return "var(--m-kas)";if(/[ٌ]/.test(w))return "var(--m-dam)";
+  if(/ّ/.test(w))return "var(--m-sha)";if(/ْ/.test(w))return "var(--m-suk)";
+  if(/[اوي]/.test(w.replace(/^[أإ]/,""))&&/[َُِ][اوي]/.test(w))return "var(--m-mad)";
+  if(/َ/.test(w))return "var(--m-fat)";if(/ِ/.test(w))return "var(--m-kas)";if(/ُ/.test(w))return "var(--m-dam)";return ""}
+const demoHTML=d=>String(d).split(/\s+/).map(w=>{const c=markColor(w);return c?`<span style="color:${c}">${esc(w)}</span>`:esc(w)}).join(" ");
+const lines=h=>{const p=String(h).split(/\s+·\s+/);return p.length>1&&/[=←]/.test(h)?`<div class="lines">${p.map(x=>{const m=x.match(/^([\u0600-\u06FF\u0750-\u077F]+)\s+(.*)$/);if(!m)return `<div>${gl(x)}</div>`;const c=markColor(m[1]);const k=m[2].indexOf("=");const a=k>0?m[2].slice(0,k):"",b=k>0?m[2].slice(k):m[2];return `<div style="${c?`--lc:${c}`:""}" class="${c?"mc":""}"><span class="lead-ar" dir="rtl">${esc(m[1])}</span><span class="lt">${a?`<b class="mk">${gl(a)}</b>`:""}${gl(b)}</span></div>`}).join("")}</div>`:gl(h)};
 /* ---------- Pictures (original SVG / HTML drawings made for Itqaan) ---------- */
 const PIC={
  mouth(){const A=lang==="ar";
@@ -838,7 +852,7 @@ function learn(){
   app.innerHTML=`<h1>${t("learn_title")}</h1><p class="lead">${t("learn_lead")}</p><p class="tip">${t("tip")}</p>
   ${chips(learnCat)}
   ${learnCat==="all"?`<div class="step">${t("step")} ${num(1)}</div><div class="cat-head"><span class="dot" style="background:var(--gold)"></span><h2>${t("found")}</h2></div>
-    <div class="grid g2">${FOUND.map(f=>`<article class="card found"><div class="demo">${f.demo}</div><h3>${esc(f[lang])}</h3><div style="margin:0;font-size:15px">${lines(lang==="ar"?f.dar:f.den)}</div></article>`).join("")}</div>`:""}
+    <div class="grid g2">${FOUND.map(f=>`<article class="card found"><div class="demo">${demoHTML(f.demo)}</div><h3>${esc(f[lang])}</h3><div style="margin:0;font-size:15px">${lines(lang==="ar"?f.dar:f.den)}</div></article>`).join("")}</div>`:""}
   ${cats.map(c=>`<div class="step">${t("step")} ${num(CATS.indexOf(c)+2)}</div><div class="cat-head"><span class="dot" style="background:${c.color}"></span><h2>${c[lang]}</h2><a class="btn ghost" href="#practice" data-pcat="${c.id}">${t("practice_step")}</a></div>
     <div class="grid g2">${RULES.filter(r=>r.cat===c.id).map(r=>ruleCard(r,c)).join("")}</div>`).join("")}`;
   bindChips(v=>{learnCat=v;learn()});
@@ -1047,7 +1061,7 @@ function lessonRun(){
     nav=`<div class="row"><button class="btn ghost" id="lredo">${t("redo")}</button>${ni<LESSONS.length?`<button class="btn" id="lnext">${t("next_lesson")}</button>`:`<a class="btn" href="#practice" style="text-decoration:none">${t("nav_practice")}</a>`}</div>`;
   } else if(LS.qi<0){
     const st=LS.steps[LS.step];
-    if(st.kind==="found") body=`<article class="card found" style="padding:28px"><div class="demo" style="font-size:52px">${st.f.demo}</div><h2>${esc(st.f[lang])}</h2><div style="font-size:17px;margin:0">${lines(lang==="ar"?st.f.dar:st.f.den)}</div></article>`;
+    if(st.kind==="found") body=`<article class="card found" style="padding:28px"><div class="demo" style="font-size:52px">${demoHTML(st.f.demo)}</div><h2>${esc(st.f[lang])}</h2><div style="font-size:17px;margin:0">${lines(lang==="ar"?st.f.dar:st.f.den)}</div></article>`;
     else if(st.kind==="intro"){const rs=RULES.filter(r=>r.cat===id);
       body=`<article class="card pad rule" style="--c:${c}"><p style="font-size:22px;font-weight:600;margin:0">${gl(INTRO[id][lang])}</p><div class="note" style="margin-top:12px">${t("in_lesson")}:</div><div class="chips" style="margin:8px 0 0">${rs.map(r=>`<span class="chip">${esc(rname(r))}</span>`).join("")}</div></article>`;}
     else if(st.kind==="break"){
