@@ -31,3 +31,6 @@ See the Credits page inside the site.
 - Lessons, questions, pictures and design: written and drawn for this project
 
 This is a study aid. Always check your recitation with a qualified teacher.
+
+---
+© 2026 alfirdows. All rights reserved. See [LICENSE](LICENSE).
