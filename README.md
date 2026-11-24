@@ -27,7 +27,7 @@ See the Credits page inside the site.
 - Quran text (Uthmani, Ḥafṣ): [Quran.com](https://quran.com) by the [Quran Foundation](https://quran.foundation), via the Quran.com API
 - Recitation: Sheikh Ibrahim Al-Akhdar, streamed from [EveryAyah.com](https://everyayah.com) (links only, no audio files are copied)
 - English meanings: Saheeh International
-- Fonts: Amiri Quran, IBM Plex Sans Arabic, Inter (Google Fonts, SIL Open Font License)
+- Fonts: Amiri Quran, Aref Ruqaa, IBM Plex Sans Arabic, Inter, Newsreader (Google Fonts, SIL Open Font License)
 - Lessons, questions, pictures and design: written and drawn for this project
 
 This is a study aid. Always check your recitation with a qualified teacher.
